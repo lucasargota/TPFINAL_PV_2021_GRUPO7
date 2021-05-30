@@ -10,7 +10,7 @@ import ar.edu.unju.edm.model.Poi;
 
 @Repository
 public interface IPoiDAO extends CrudRepository<Poi, Integer> {
-	@Query("from Cliente c order by c.codigoPoi")
+	@Query("from Poi c order by c.codigoPoi")
 	public List<Poi> obtenerPoi();
 	
 

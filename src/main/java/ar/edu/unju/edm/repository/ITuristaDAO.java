@@ -14,7 +14,7 @@ import ar.edu.unju.edm.model.Turista;
 @Repository
 
 public interface ITuristaDAO extends CrudRepository<Turista, Integer>{
-	@Query("from Cliente c order by c.nroDocumento")
+	@Query("from Turista c order by c.id")
 	public List<Turista> obtenerTurista();
 	
 	

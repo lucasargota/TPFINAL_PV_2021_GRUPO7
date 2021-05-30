@@ -14,8 +14,6 @@ import ar.edu.unju.edm.service.IPoiService;
 
 
 
-
-
 @Controller
 public class PoiController {
 	@Autowired
@@ -23,19 +21,19 @@ public class PoiController {
 	IPoiService poiService; 
 
 		
-		@GetMapping("/poi/registrar")
+		@GetMapping("/poi/mostrar")
 		public String cargarPoi(Model model) {
 		model.addAttribute("unPoi", poiService.crearPoi());
 		model.addAttribute("pois", poiService.obtenerTodosPois());
-			return("poi");
+			return("pois");
 		} 
-		@PostMapping("/poi/guardar")
+		@PostMapping("/addpoi/guardar")
 		public String guardarNuevoPoI (@ModelAttribute("unPoi") Poi nuevoPoi, Model model) {	
 			
 			poiService.guardarPoi(nuevoPoi);		
 			
 		
-				return "redirect:/turista/mostrar";
+				return "pois";
 					
 				
 		}

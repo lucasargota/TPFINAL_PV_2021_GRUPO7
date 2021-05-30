@@ -12,7 +12,7 @@ import ar.edu.unju.edm.repository.ITuristaDAO;
 import ar.edu.unju.edm.service.ITuristaService;
 
 @Service
-@Qualifier("implementacionmysql")
+@Qualifier("implementacion2mysql")
 public class TuristaServiceMYSQL implements ITuristaService{
 	@Autowired
 	Turista unTurista;
@@ -28,13 +28,13 @@ public class TuristaServiceMYSQL implements ITuristaService{
 	@Override
 	public Turista crearTurista() {
 		// TODO Auto-generated method stub
-		return null;
+		return unTurista;
 	}
 
 	@Override
 	public List<Turista> obtenerTodosTuristas() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Turista>) turistaDAO.findAll();
 	}
 
 }
