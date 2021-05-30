@@ -11,15 +11,104 @@
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
 </head>
 <body class="fondo">
+ <div class="container">
 
-<h1>Turistas</h1>
+<h1>Registrarse</h1>
+
+<form class="needs-validation" novalidate id="formTurista" th:object="${unTurista}" th:action="${editMode}?@{/turista/mostrar}:@{/turista/guardar}" method="post">
+			<br>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="nomTurista">Nombre</label> <input type="text"
+						class="form-control" id="nomTurista" th:field="*{nombre}"
+						value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="apTurista">Apellido</label> 
+					<input type="text" class="form-control" id="apTurista" th:field="*{apellido}" value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="emTurista">Email</label> 
+					<input type="email" class="form-control" id="emTurista" th:field="*{email}" value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="contrasenia">Contraseña</label> 
+					<input type="password" class="form-control" id="contrasenia" th:field="*{password}" value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="paisTurista">Pais</label> 
+					<input type="text" class="form-control" id="paisTurista" th:field="*{pais}" value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="latitud">Latitud</label> 
+					<input type="number" class="form-control" id="latitud" th:field="*{localizacionLatitud}" value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="longitud">Longitud</label> 
+					<input type="number" class="form-control" id="longitud" th:field="*{localizacionLongitud}" value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback"></div>
+				</div>
+			</div>
+			<div class="form-row justify-content-md-center">
+				<button class="btn btn-dark col-4 btn-space" type="submit"
+					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Agregar</button>
+				<button class="btn btn-danger col-4" th:href="@{'/cancelar'}">Cancelar</button>
+			<div>
+			
+			
+</form>
 
 
-  <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript"
-        src="webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript"
-        src="webjars/popper.js/1.16.0/popper.min.js"></script>
-    <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript"
-        src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
+						var forms = document
+								.getElementsByClassName('needs-validation');
+						// Loop over them and prevent submission
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
+
+	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
+		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
+		type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
+		type="text/javascript"
+		src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		
 </body>
 </html>
