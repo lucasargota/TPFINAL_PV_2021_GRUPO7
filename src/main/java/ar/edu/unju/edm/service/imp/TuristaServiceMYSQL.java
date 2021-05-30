@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-
 import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.repository.ITuristaDAO;
 import ar.edu.unju.edm.service.ITuristaService;
@@ -35,6 +34,43 @@ public class TuristaServiceMYSQL implements ITuristaService{
 	public List<Turista> obtenerTodosTuristas() {
 		// TODO Auto-generated method stub
 		return (List<Turista>) turistaDAO.findAll();
+	}
+
+	@Override
+	public Turista encontrarUnTurista(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return turistaDAO.findById(id).orElseThrow(()->new Exception("El Turista NO existe"));
+
+	}
+
+	@Override
+	public void modificarTurista(Turista unTuristaModificado) throws Exception {
+		// TODO Auto-generated method stub
+		Turista turistaAModificar = turistaDAO.findById(unTuristaModificado.getId()).orElseThrow(()->new Exception("El Turista no fue encontrado"));
+		 
+		cambiarTurista(unTuristaModificado, turistaAModificar);
+		turistaDAO.save(turistaAModificar);
+		
+	}
+	private void cambiarTurista(Turista desde, Turista hacia) {
+		hacia.setApellido(desde.getApellido());
+		hacia.setEmail(desde.getEmail());
+		hacia.setLocalizacionLatitud(desde.getLocalizacionLatitud());
+		hacia.setLocalizacionLongitud(desde.getLocalizacionLongitud());
+		hacia.setNombre(desde.getNombre());
+		hacia.setPais(desde.getPais());
+		hacia.setPassword(desde.getPassword());
+		hacia.setPuntos(desde.getPuntos());
+		
+		}
+	
+	
+
+	@Override
+	public void eliminarTurista(int id) throws Exception {
+		// TODO Auto-generated method stub
+		Turista turistaEliminar = turistaDAO.findById(id).orElseThrow(()->new Exception("El turista no fue encontrado"));
+		turistaDAO.delete(turistaEliminar);
 	}
 
 }
