@@ -16,7 +16,7 @@ public class Turista {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private int id;
+	private Integer id;
 	@Column
 	private String nombre;
 	@Column
@@ -88,12 +88,21 @@ public class Turista {
 	}
 	
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Apellido == null) ? 0 : Apellido.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + id;
 		long temp;
 		temp = Double.doubleToLongBits(localizacionLatitud);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -105,7 +114,7 @@ public class Turista {
 		result = prime * result + puntos;
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -124,6 +133,8 @@ public class Turista {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (id != other.id)
 			return false;
 		if (Double.doubleToLongBits(localizacionLatitud) != Double.doubleToLongBits(other.localizacionLatitud))
 			return false;
@@ -147,6 +158,9 @@ public class Turista {
 		if (puntos != other.puntos)
 			return false;
 		return true;
-	} 
+	}
+
+	
+	
 	
 }

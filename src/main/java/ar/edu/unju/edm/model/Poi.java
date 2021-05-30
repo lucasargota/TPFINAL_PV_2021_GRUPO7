@@ -17,7 +17,7 @@ public class Poi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private int codigoPoi;
+	private Integer codigoPoi;
 	@Column
 	private String nombre;
 	@Column
