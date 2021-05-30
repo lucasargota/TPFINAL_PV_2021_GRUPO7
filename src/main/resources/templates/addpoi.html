@@ -9,6 +9,11 @@
 </head>
 <body>
 
+	<!-- Header -->
+	<header>
+		<div th:insert="layouts/header :: header"></div>
+	</header>
+
 	<div class="container">
 
 		<!-- FormAddPoi -->
@@ -18,7 +23,7 @@
 			method="post">
 
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-8 mb-3">
+				<div class="col-md-6 mb-3">
 					<label for="name">Nombre</label> <input type="text"
 						class="form-control" id="name" th:field="*{nombre}"
 						value="Ej. Cerro de Siete Colores" required>
@@ -27,26 +32,29 @@
 			</div>
 
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-8 mb-3">
+				<div class="col-md-4 mb-3">
 					<label for="address">Calle</label> <input type="text"
 						class="form-control" id="address" th:field="*{calle}"
 						value="Ej. Independencia" required>
 					<div class="valid-feedback">...</div>
 				</div>
-				<div class="col-md-3 mb-3">
-					<label for="anumber">N�mero</label> <input type="number"
+				<div class="col-md-2 mb-3">
+					<label for="anumber">Número</label> <input type="number"
 						class="form-control" id="anumber" th:field="*{numeroCasa}"
 						value="Ej. 1446" required>
-					<div class="invalid-feedback">Por favor ingrese un numero
-						v�lido.</div>
+					<div class="invalid-feedback">Por favor ingrese un número
+						válido.</div>
 				</div>
-				<div class="col-md-6 mb-3">
+			</div>
+			
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-3 mb-3">
 					<label for="nbhd">Barrio</label> <input type="text"
 						class="form-control" id="nbhd" th:field="*{barrio}"
 						value="Ej. Ciudad de Nieva" required>
 					<div class="valid-feedback">...</div>
 				</div>
-				<div class="col-md-6 mb-3">
+				<div class="col-md-3 mb-3">
 					<label for="city">Localidad</label> <input type="text"
 						class="form-control" id="city" th:field="*{localidad}"
 						value="Ej. San Salvador de Jujuy" required>
@@ -55,21 +63,25 @@
 			</div>
 
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-12 mb-3">
-					<label for="description">Descripcion</label> <input type="text"
+				<div class="col-md-6 mb-3">
+					<label for="description">Descripción</label> <input type="text"
 						class="form-control" id="description" th:field="*{descripcion}" required>
-					<div class="invalid-feedback">La descripcion debe tener al
+					<div class="invalid-feedback">La descripción debe tener al
 						menos 40 caracteres.</div>
 				</div>
-				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="customFile"
-						th:field="*{...}" required> <label
+			</div>
+			
+			<div class="form-row justify-content-md-center">
+				<div class="custom-file col-md-6">
+					<input type="file" class="custom-file-input" id="customFile" required> <label
 						class="custom-file-label" for="customFile">Elegir foto</label>
 				</div>
 			</div>
 
+			<br>
+			
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-6 mb-3">
+				<div class="col-md-3 mb-3">
 					<label for="tag">Etiqueta</label> <select class="custom-select"
 						id="tag" th:field="*{etiqueta}">
 						<option selected disabled value="">Elegir</option>
@@ -80,18 +92,20 @@
 						<option value="Gastronomia">Gastronomia</option>
 					</select>
 				</div>
-				<div class="col-md-6 mb-3">
+				<div class="col-md-3 mb-3">
 					<label for="website">Sitio Web</label> <input type="text"
 						class="form-control" id="website" th:field="*{sitioWeb}">
 					<div class="invalid-feedback">Por favor agregue un sitio web
-						v�lido.</div>
+						válido.</div>
 				</div>
 			</div>
-
-			<button class="btn btn-cyan col-6" type="submit"
-				th:value="${editMode}?'Modificar Poi':'Crear Poi'">Agregar</button>
-			<button class="btn btn-danger col-6" th:href="@{'/cancelar'}">Cancelar</button>
-
+			
+			<div class="form-row justify-content-md-center">
+				<button class="btn btn-dark col-md-2 btn-space" type="submit"
+					th:value="${editMode}?'Modificar Poi':'Crear Poi'">Agregar</button>
+				<button class="btn btn-danger col-md-2" th:href="@{'/cancelar'}">Cancelar</button>
+			</div>
+			
 		</form>
 
 	</div>
