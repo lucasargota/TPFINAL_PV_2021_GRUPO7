@@ -2,5 +2,9 @@ html{
     height: 100%;
 }
 .fondo{
-	background-color: green;
+	background-color: white;
+}
+
+.btn-space {
+    margin-right: 50px;
 }
