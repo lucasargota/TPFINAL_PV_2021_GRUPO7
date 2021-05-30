@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table (name ="POIS") 
-public class Pois {
+public class Poi {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +40,7 @@ public class Pois {
 	@Column
 	private int localizacionLongitud;
 	
-	public Pois() {
+	public Poi() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -158,7 +158,7 @@ public class Pois {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pois other = (Pois) obj;
+		Poi other = (Poi) obj;
 		if (barrio == null) {
 			if (other.barrio != null)
 				return false;
@@ -205,14 +205,4 @@ public class Pois {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Pois [codigoPoi=" + codigoPoi + ", nombre=" + nombre + ", descripcion=" + descripcion + ", etiqueta="
-				+ etiqueta + ", sitioWeb=" + sitioWeb + ", calle=" + calle + ", numeroCasa=" + numeroCasa + ", barrio="
-				+ barrio + ", localidad=" + localidad + ", localizacionLatitud=" + localizacionLatitud
-				+ ", localizacionLongitud=" + localizacionLongitud + "]";
-	}
-	
-	
-	
 }
