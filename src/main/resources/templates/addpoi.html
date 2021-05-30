@@ -11,9 +11,129 @@
 </head>
 <body>
 
+	<!-- Nav -->
+	<header>
+		<div th:insert="layouts/header :: header"></div>
+	</header>
 
+	<div class="container">
+
+		<!-- FormAddPoi -->
+		<form class="needs-validation" novalidate id="formPoi"
+			th:object="${unPoi}"
+			th:action="${editMode}?@{/addpoi/modificar}:@{/addpoi/guardar}"
+			method="post">
+
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="name">Nombre</label> <input type="text"
+						class="form-control" id="name" th:field="*{nombre}"
+						value="Ej. Cerro de Siete Colores" required>
+					<div class="valid-feedback">...</div>
+				</div>
+			</div>
+
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-8 mb-3">
+					<label for="address">Calle</label> <input type="text"
+						class="form-control" id="address" th:field="*{calle}"
+						value="Ej. Independencia" required>
+					<div class="valid-feedback">...</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="anumber">Número</label> <input type="number"
+						class="form-control" id="anumber" th:field="*{numeroCasa}"
+						value="Ej. 1446" required>
+					<div class="invalid-feedback">Por favor ingrese un número
+						válido.</div>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label for="nbhd">Barrio</label> <input type="text"
+						class="form-control" id="nbhd" th:field="*{barrio}"
+						value="Ej. Ciudad de Nieva" required>
+					<div class="valid-feedback">...</div>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label for="city">Localidad</label> <input type="text"
+						class="form-control" id="city" th:field="*{localidad}"
+						value="Ej. San Salvador de Jujuy" required>
+					<div class="valid-feedback">...</div>
+				</div>
+			</div>
+
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-12 mb-3">
+					<label for="description">Descripción</label> <input type="text"
+						class="form-control" id="description" th:field="*{descripcion}" required>
+					<div class="invalid-feedback">La descripción debe tener al
+						menos 40 caracteres.</div>
+				</div>
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="customFile"
+						th:field="*{...}" required> <label
+						class="custom-file-label" for="customFile">Elegir foto</label>
+				</div>
+			</div>
+
+			<div class="form-row justify-content-md-center">
+				<div class="col-md-6 mb-3">
+					<label for="tag">Etiqueta</label> <select class="custom-select"
+						id="tag" th:field="*{etiqueta}">
+						<option selected disabled value="">Elegir</option>
+						<option value="Cultura">Cultura</option>
+						<option value="Naturaleza">Naturaleza</option>
+						<option value="Aventura">Aventura</option>
+						<option value="Deportes">Deportes</option>
+						<option value="Gastronomia">Gastronomía</option>
+					</select>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label for="website">Sitio Web</label> <input type="text"
+						class="form-control" id="website" th:field="*{sitioWeb}">
+					<div class="invalid-feedback">Por favor agregue un sitio web
+						válido.</div>
+				</div>
+			</div>
+
+			<button class="btn btn-cyan col-6" type="submit"
+				th:value="${editMode}?'Modificar Poi':'Crear Poi'">Agregar</button>
+			<button class="btn btn-danger col-6" th:href="@{'/cancelar'}">Cancelar</button>
+
+		</form>
+
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div th:insert="layouts/footer :: footer"></div>
+	</footer>
 
 	<!-- Scripts -->
+	<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
+						var forms = document
+								.getElementsByClassName('needs-validation');
+						// Loop over them and prevent submission
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
+
 	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
 		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
 	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
