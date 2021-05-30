@@ -1,9 +1,5 @@
 package ar.edu.unju.edm.controller;
 
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,13 +13,14 @@ import ar.edu.unju.edm.service.ITuristaService;
 public class TuristaController{
 	
 @Autowired
-@Qualifier("implementacionmysql")	
-ITuristaService TuristaService;
+@Qualifier("implementacion2mysql")	
+ITuristaService turistaService;
 	
-	@GetMapping("/turista/registrar")
+	@GetMapping("/turista/mostrar")
 	public String cargarTurista(Model model) {
-		
-		return("turista");
+		model.addAttribute("unTurista", turistaService.crearTurista());
+		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
+		return("turistas");
 	} 
 	@PostMapping("/turista/guardar")
 	public String guardarNuevoturista( Model model) {		

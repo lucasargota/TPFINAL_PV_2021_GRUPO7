@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link th:rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
-<link th:rel="stylesheet" type="text/css"
-	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
-<link th:rel="stylesheet"
-	th:href="@{/webjars/font-awesome/5.11.2/css/all.css} " />
-<meta charset="ISO-8859-1">
-<title>AgregarPuntoDeInteres</title>
+	<meta charset="UTF-8">
+	<title>Agregar Punto de Interes</title>
+	<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
 </head>
 <body>
-
-	<!-- Nav -->
-	<header>
-		<div th:insert="layouts/header :: header"></div>
-	</header>
 
 	<div class="container">
 
@@ -41,11 +34,11 @@
 					<div class="valid-feedback">...</div>
 				</div>
 				<div class="col-md-3 mb-3">
-					<label for="anumber">Número</label> <input type="number"
+					<label for="anumber">Nï¿½mero</label> <input type="number"
 						class="form-control" id="anumber" th:field="*{numeroCasa}"
 						value="Ej. 1446" required>
-					<div class="invalid-feedback">Por favor ingrese un número
-						válido.</div>
+					<div class="invalid-feedback">Por favor ingrese un numero
+						vï¿½lido.</div>
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="nbhd">Barrio</label> <input type="text"
@@ -63,9 +56,9 @@
 
 			<div class="form-row justify-content-md-center">
 				<div class="col-md-12 mb-3">
-					<label for="description">Descripción</label> <input type="text"
+					<label for="description">Descripcion</label> <input type="text"
 						class="form-control" id="description" th:field="*{descripcion}" required>
-					<div class="invalid-feedback">La descripción debe tener al
+					<div class="invalid-feedback">La descripcion debe tener al
 						menos 40 caracteres.</div>
 				</div>
 				<div class="custom-file">
@@ -84,14 +77,14 @@
 						<option value="Naturaleza">Naturaleza</option>
 						<option value="Aventura">Aventura</option>
 						<option value="Deportes">Deportes</option>
-						<option value="Gastronomia">Gastronomía</option>
+						<option value="Gastronomia">Gastronomia</option>
 					</select>
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="website">Sitio Web</label> <input type="text"
 						class="form-control" id="website" th:field="*{sitioWeb}">
 					<div class="invalid-feedback">Por favor agregue un sitio web
-						válido.</div>
+						vï¿½lido.</div>
 				</div>
 			</div>
 
