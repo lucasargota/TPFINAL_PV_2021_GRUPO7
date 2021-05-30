@@ -1,24 +1,42 @@
 package ar.edu.unju.edm.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table (name ="TURISTAS") 
 public class Turista {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Column
 	private String nombre;
-	
+	@Column
 	private String Apellido; 
-	
+	@Column
 	private String email; 
-	
+	@Column
 	private String password; 
-	
+	@Column
 	private String pais; 
-	
+	@Column
 	private double localizacionLatitud;
-	
+	@Column
 	private double localizacionLongitud;
-	
+	@Column
 	private int puntos;
 	
-	
+	public Turista() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -131,10 +149,4 @@ public class Turista {
 		return true;
 	} 
 	
-	
-	
-	
-
 }
-
-
