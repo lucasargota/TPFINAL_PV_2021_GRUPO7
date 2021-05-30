@@ -21,11 +21,11 @@ public class PoiController {
 	IPoiService poiService; 
 
 		
-		@GetMapping("/poi/mostrar")
+		@GetMapping("/poi/agregar")
 		public String cargarPoi(Model model) {
 		model.addAttribute("unPoi", poiService.crearPoi());
 		model.addAttribute("pois", poiService.obtenerTodosPois());
-			return("pois");
+			return("addpoi");
 		} 
 		@PostMapping("/addpoi/guardar")
 		public String guardarNuevoPoI (@ModelAttribute("unPoi") Poi nuevoPoi, Model model) {	
