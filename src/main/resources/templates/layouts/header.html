@@ -22,12 +22,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{#}">Turistas</a>
+					<!--
+						<li class="nav-item"><a class="nav-link" th:href="@{/turista/registrar}">Registrarse</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Otro</a></li>
+					-->
+					<li class="nav-item"><a class="nav-link" href="#">Mi Perfil</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
@@ -39,6 +38,10 @@
 								class="dropdown-item" href="#">Mis puntos de interes</a> <a
 								class="dropdown-item" href="#">Something else here</a>
 						</div></li>
+						
+					<li class="nav-item active"><a class="nav-link" th:href="@{/home}">Cerrar Sesion
+							<span class="sr-only">(current)</span>
+					</a></li>
 				</ul>
 			</div>
 		</nav>
