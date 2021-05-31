@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.11.2/css/all.css} " />
+<meta charset="ISO-8859-1">
+<title>Login</title>
+</head>
+
+	<div class="container">
+
+	<body>
+	
+	<br><br><br><br>
+	
+	<div class="row align-items-center">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col">
+                
+		<div class="login-box">
+		
+					<form>
+						<h1><span class=colorTitulos>Iniciar Sesion</span></h1>
+	
+						<div class="form-group row">
+							<label for="..." class="col-sm-2 col-form-label ">Usuario</label>
+							<br><input type="text" placeholder="Enter Username"	class="form-control">							
+						</div>
+	
+						<div class="form-group row">
+							<label for="..." class="col-sm-2 col-form-label ">Contraseña</label>
+							<br> <input type="password" placeholder="Enter Password" class="form-control">
+	
+						</div>
+						
+						<div>
+							<a class="btn btn-dark" href="/poi/agregar">Ingresar</a>
+						</div>
+						
+						<a href="/turista/registrar" class="text-dark">¿No tienes una cuenta? Registrate</a>
+					</form>
+			</div>
+
+	</body>
+
+	<!-- Scripts -->
+	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
+		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
+		type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
+		type="text/javascript"
+		src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
