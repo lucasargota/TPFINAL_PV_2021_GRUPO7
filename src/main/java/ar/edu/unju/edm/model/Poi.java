@@ -45,9 +45,7 @@ public class Poi {
 	public Poi() {
 	}
 
-
-
-	public Poi(int codigoPoi, String nombre, String descripcion, String etiqueta, String sitioWeb, String calle,
+	public Poi(Integer codigoPoi, String nombre, String descripcion, String etiqueta, String sitioWeb, String calle,
 			int numeroCasa, String barrio, String localidad, int localizacionLatitud, int localizacionLongitud) {
 		super();
 		this.codigoPoi = codigoPoi;
@@ -65,17 +63,15 @@ public class Poi {
 
 
 
-	public int getCodigoPoi() {
+	public Integer getCodigoPoi() {
 		return codigoPoi;
 	}
 
 
 
-	public void setCodigoPoi(int codigoPoi) {
+	public void setCodigoPoi(Integer codigoPoi) {
 		this.codigoPoi = codigoPoi;
 	}
-
-
 
 	public String getNombre() {
 		return nombre;
@@ -195,15 +191,13 @@ public class Poi {
 		this.localizacionLongitud = localizacionLongitud;
 	}
 
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((barrio == null) ? 0 : barrio.hashCode());
 		result = prime * result + ((calle == null) ? 0 : calle.hashCode());
-		result = prime * result + codigoPoi;
+		result = prime * result + ((codigoPoi == null) ? 0 : codigoPoi.hashCode());
 		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((etiqueta == null) ? 0 : etiqueta.hashCode());
 		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
@@ -234,7 +228,10 @@ public class Poi {
 				return false;
 		} else if (!calle.equals(other.calle))
 			return false;
-		if (codigoPoi != other.codigoPoi)
+		if (codigoPoi == null) {
+			if (other.codigoPoi != null)
+				return false;
+		} else if (!codigoPoi.equals(other.codigoPoi))
 			return false;
 		if (descripcion == null) {
 			if (other.descripcion != null)
@@ -269,5 +266,9 @@ public class Poi {
 			return false;
 		return true;
 	}
+
+
+
+
 
 }

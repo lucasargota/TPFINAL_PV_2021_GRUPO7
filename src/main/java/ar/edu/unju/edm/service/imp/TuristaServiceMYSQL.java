@@ -37,7 +37,7 @@ public class TuristaServiceMYSQL implements ITuristaService{
 	}
 
 	@Override
-	public Turista encontrarUnTurista(int id) throws Exception {
+	public Turista encontrarUnTurista(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		return turistaDAO.findById(id).orElseThrow(()->new Exception("El Turista NO existe"));
 
@@ -67,7 +67,7 @@ public class TuristaServiceMYSQL implements ITuristaService{
 	
 
 	@Override
-	public void eliminarTurista(int id) throws Exception {
+	public void eliminarTurista(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		Turista turistaEliminar = turistaDAO.findById(id).orElseThrow(()->new Exception("El turista no fue encontrado"));
 		turistaDAO.delete(turistaEliminar);
