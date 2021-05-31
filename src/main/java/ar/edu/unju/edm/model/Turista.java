@@ -38,6 +38,12 @@ public class Turista {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -86,15 +92,6 @@ public class Turista {
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
-	
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	@Override
 	public int hashCode() {
@@ -102,7 +99,7 @@ public class Turista {
 		int result = 1;
 		result = prime * result + ((Apellido == null) ? 0 : Apellido.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(localizacionLatitud);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -134,7 +131,10 @@ public class Turista {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (Double.doubleToLongBits(localizacionLatitud) != Double.doubleToLongBits(other.localizacionLatitud))
 			return false;
@@ -159,8 +159,9 @@ public class Turista {
 			return false;
 		return true;
 	}
-
 	
+	
+
 	
 	
 }
