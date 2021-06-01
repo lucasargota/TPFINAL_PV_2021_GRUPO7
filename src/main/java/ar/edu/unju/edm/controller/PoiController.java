@@ -28,6 +28,12 @@ public class PoiController {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("addpoi");
 		} 
+		
+		@GetMapping("/poi/mostrar")
+		public String mostrarPoi(Model model) {
+		model.addAttribute("pois", poiService.obtenerTodosPois());
+			return("pois");
+		} 
 
 		
 		
@@ -86,7 +92,7 @@ public class PoiController {
 			poiService.guardarPoi(nuevoPoi);		
 			
 		
-				return "pois";
+				return "redirect:/poi/mostrar";
 					
 				
 		}
