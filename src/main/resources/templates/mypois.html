@@ -11,6 +11,11 @@
 </head>
 <body>
 
+	<!-- Header -->
+	<header>
+		<div th:insert="layouts/header :: header"></div>
+	</header>
+
 	<div class="container">
 		<div class="row col-md-12">
 			<div th:each="...">
@@ -20,7 +25,6 @@
 						<div class="card-body">
 							<h5 class="card-title" th:text="${...}">Nombre del Lugar</h5>
 							<p class="card-text" th:text="${...}">Ubicacion</p>
-							<a class="stretched-link btn btn-primary"><i class="fas fa-shopping-cart mr-2"></i>Ver Punto de interes</a>
 						</div>
 					</div>
 					<br>
@@ -28,6 +32,11 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- Footer -->
+	<footer>
+		<div th:insert="layouts/footer :: footer"></div>
+	</footer>
 
 	<!-- Scripts -->
 	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
