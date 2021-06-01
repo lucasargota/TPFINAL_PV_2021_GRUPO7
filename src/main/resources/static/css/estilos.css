@@ -29,3 +29,47 @@ html{
   left: 50%;
   padding: 70px 30px;
 }
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 50px;
+}
+
+.border
+{
+	border: 3px #141f1f;
+}
+
+.bgc 
+{
+	background-color: #17a2b8;
+}
+
+b {
+	background:url(../img/ruta.jpg) repeat center top;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;   
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*padding: 1rem;
+  /*background-color: #efefef;*/
+  text-align: left;
+}
