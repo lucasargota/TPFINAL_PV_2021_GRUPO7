@@ -100,11 +100,17 @@
 				</div>
 			</div>
 			
-			<div class="form-row justify-content-md-center">
-				<button class="btn btn-dark col-md-2 btn-space" type="submit"
-					th:value="${editMode}?'Modificar Poi':'Crear Poi'">Agregar</button>
-				<button class="btn btn-danger col-md-2" th:href="@{'/cancelar'}">Cancelar</button>
-			</div>
+			
+			
+				<div class="form-group row">
+					<div class="col-sm-6">
+						<input type="submit" class="btn btn-success btn-block"
+							th:value="${editMode}?'Modificar Poi':'Crear Poi'">
+					</div>
+					<div class="col-sm-6">
+						<input class="btn btn-success btn-block" type="reset" value="Cancelar">
+					</div>
+				</div>
 			
 		</form>
 
