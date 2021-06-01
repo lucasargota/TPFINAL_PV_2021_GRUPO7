@@ -25,6 +25,13 @@ ITuristaService turistaService;
 		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
 		return("turistas");
 	} 
+	
+	@GetMapping("/perfil")
+	public String perfilTurista(Model model) {
+		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
+		return("perfil");
+	} 
+	
 	//Para la pagina usuario
 	@GetMapping("/turista/buscar/{id}")
 	public String buscarTurista(Model model, @PathVariable(name="id") Integer id) throws Exception {		
@@ -69,7 +76,7 @@ ITuristaService turistaService;
 	}
 	@GetMapping("/cancelar/turista")
 	public String cancelar() {
-		return "turistas";
+		return "redirect:turistas/redirect";
 	}
 	
 	//Post
@@ -77,7 +84,7 @@ ITuristaService turistaService;
 	public String guardarNuevoturista(@ModelAttribute("UnTurista") Turista nuevoTurista, Model model ) {		
 	
 		turistaService.guardarTurista(nuevoTurista);
-			return "redirect:/turista/registrar";
+			return "redirect:/perfil";
 				
 			
 	}
