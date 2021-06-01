@@ -60,7 +60,7 @@ public class PoiController {
 		}
 		@GetMapping("/cancelar")
 		public String cancelar() {
-			return "addpoi";
+			return "redirect:/poi/agregar";
 		}
 		
 		//Post
