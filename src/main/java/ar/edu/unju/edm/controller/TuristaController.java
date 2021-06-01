@@ -25,6 +25,22 @@ ITuristaService turistaService;
 		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
 		return("turistas");
 	} 
+	//Para la pagina usuario
+	@GetMapping("/turista/buscar/{id}")
+	public String buscarTurista(Model model, @PathVariable(name="id") Integer id) throws Exception {		
+		try {
+			Turista turistaEncontrado = turistaService.encontrarUnTurista(id);
+			model.addAttribute("unTurista", turistaEncontrado);	
+			model.addAttribute("editMode", "true");
+		}
+		catch (Exception e) {
+			model.addAttribute("formUsuarioErrorMessage",e.getMessage());
+			model.addAttribute("unTurista", turistaService.crearTurista());
+			model.addAttribute("editMode", "false");
+		}				
+		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());		
+		return "usuario";
+	}
 	@GetMapping("/turista/editar/{id}")
 	public String editarTurista(Model model, @PathVariable(name="id") Integer id) throws Exception {		
 		try {
