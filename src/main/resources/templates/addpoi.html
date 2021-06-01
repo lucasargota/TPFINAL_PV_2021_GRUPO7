@@ -15,7 +15,7 @@
 	</header>
 
 	<div class="container">
-
+		
 		<!-- FormAddPoi -->
 		<form class="needs-validation" novalidate id="formPoi"
 			th:object="${unPoi}"
@@ -27,7 +27,7 @@
 					<label for="name">Nombre</label> <input type="text"
 						class="form-control" id="name" th:field="*{nombre}"
 						value="Ej. Cerro de Siete Colores" required>
-					<div class="valid-feedback">...</div>
+					<div class="valid-feedback"></div>
 				</div>
 			</div>
 
@@ -36,7 +36,7 @@
 					<label for="address">Calle</label> <input type="text"
 						class="form-control" id="address" th:field="*{calle}"
 						value="Ej. Independencia" required>
-					<div class="valid-feedback">...</div>
+					<div class="valid-feedback"></div>
 				</div>
 				<div class="col-md-2 mb-3">
 					<label for="anumber">Número</label> <input type="number"
@@ -52,13 +52,13 @@
 					<label for="nbhd">Barrio</label> <input type="text"
 						class="form-control" id="nbhd" th:field="*{barrio}"
 						value="Ej. Ciudad de Nieva" required>
-					<div class="valid-feedback">...</div>
+					<div class="valid-feedback"></div>
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="city">Localidad</label> <input type="text"
 						class="form-control" id="city" th:field="*{localidad}"
 						value="Ej. San Salvador de Jujuy" required>
-					<div class="valid-feedback">...</div>
+					<div class="valid-feedback"></div>
 				</div>
 			</div>
 
@@ -73,7 +73,7 @@
 			
 			<div class="form-row justify-content-md-center">
 				<div class="custom-file col-md-6">
-					<input type="file" class="custom-file-input" id="customFile" required> <label
+					<input type="file" class="custom-file-input" id="customFile"> <label
 						class="custom-file-label" for="customFile">Elegir foto</label>
 				</div>
 			</div>
