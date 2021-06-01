@@ -13,8 +13,43 @@
 
 <body class="fondo">
 
-<h1>Mi Perfil</h1>
+<!-- Header -->
+	<header>
+		<div th:insert="layouts/header :: header"></div>
+	</header>
+	
+	<br>
+	<div class="container">
+		<div class="bg-dark">
+			<br>
+			<h1 id='Titulos'><span class=text-light>Mi Perfil</span></h1>
+			<br>
+			<!-- Datos Turista -->
+			<div class="perfilbox">
+				<div class="imgusuario">
+						<img class="avatar" src="/img/usuario.png"/>
+				</div>								
+				id user
+				<br>
+				nombre y apellido de usuario
+				<br>
+				email
+				<br>
+				Pais
+				<br>
+				Puntos
+				<br>
+				
+			</div>
+			<br>
+		</div>
+	</div>
+	<br>
 
+<!-- Footer -->
+	<footer>
+		<div th:insert="layouts/footer :: footer"></div>
+	</footer>
 
   <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript"
         src="webjars/jquery/3.5.1/jquery.min.js"></script>
