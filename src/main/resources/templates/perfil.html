@@ -28,17 +28,30 @@
 			<div class="perfilbox">
 				<div class="imgusuario">
 						<img class="avatar" src="/img/usuario.png"/>
-				</div>								
-				id user
-				<br>
-				nombre y apellido de usuario
-				<br>
-				email
-				<br>
-				Pais
-				<br>
-				Puntos
-				<br>
+				</div>
+												
+				<div class="row justify-content-md-center">
+			<div th:each="t : ${turistas}">
+				<div class="col-md-4">
+					<div style="width: 15rem;">
+						<div class="titulos">
+							<h6>Nombre de Usuario</h6>
+							<h8 th:text="${t.nombre}">Nombre</h8>
+							
+							<h6>Apellido de Usuario</h6>
+							<h8 th:text="${t.apellido}">Apellido</h8>
+							
+							<h6>Email</h6>
+							<h8 th:text="${t.email}">Email</h8>
+							
+							<h6>Pais</h6>
+							<h8 th:text="${t.pais}">Pais</h8>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 				
 			</div>
 			<br>
