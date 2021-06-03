@@ -73,4 +73,11 @@ public class TuristaServiceMYSQL implements ITuristaService{
 		turistaDAO.delete(turistaEliminar);
 	}
 
+	@Override
+	public Turista encontrarPorEmail(String email) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return turistaDAO.findByEmail(email).orElseThrow(()->new Exception("El turista no fue encontrado"));
+	}
+
 }

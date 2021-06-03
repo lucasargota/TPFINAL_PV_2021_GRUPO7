@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -39,6 +41,9 @@ public class Poi {
 	@Column
 	private int localizacionLongitud;
 	
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private Turista otroTurista;
 
 
 
