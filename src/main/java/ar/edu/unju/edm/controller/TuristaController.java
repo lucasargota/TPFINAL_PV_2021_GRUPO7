@@ -29,6 +29,8 @@ ITuristaService turistaService;
 	@GetMapping("/perfil")
 	public String perfilTurista(Model model) {
 		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
+		//UserDetails userCliente = (UserDetails) authentication.getPrincipal();
+		//model.addAttribute("unturista", turistaService.encontrarPorEmail(userCliente.getUsername()));
 		return("perfil");
 	} 
 	
@@ -84,7 +86,7 @@ ITuristaService turistaService;
 	public String guardarNuevoturista(@ModelAttribute("UnTurista") Turista nuevoTurista, Model model ) {		
 	
 		turistaService.guardarTurista(nuevoTurista);
-			return "redirect:/perfil";
+			return "redirect:/home";
 				
 			
 	}
