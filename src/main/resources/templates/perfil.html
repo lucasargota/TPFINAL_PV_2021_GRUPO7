@@ -26,7 +26,7 @@
 			<div class="row justify-content-md-center">
 			<div class="col -6 col-sm-6">
 			<div class="perfilbox">
-			<h1 id='Titulos'><span class=text-dark>Mi Perfil</span></h1>
+			<h1 id='Titulos'><span class=text-light>Mi Perfil</span></h1>
 			<br>
 				<div class="row justify-content-md-center">
 					<div class="imgusuario">
@@ -35,7 +35,7 @@
 					
 						<div th:each="t : ${turistas}">
 								<div style="width: 15rem;">
-									<div class="titulos">
+									<div class="titulos ">
 										<h6>Nombre de Usuario</h6>
 										<h8 th:text="${t.nombre}">Nombre</h8>
 										
@@ -56,7 +56,7 @@
 				<div class="form-row justify-content-md-end">
 				<button class="btn btn-info col-4 btn-space" type="submit"
 					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Modificar Perfil</button>
-				<button class="btn btn-danger col-4 btn-space" type="submit"
+				<button class="btn btn-danger col-4 btn-space" type="submit" 
 					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Eliminar Perfil</button>
 			</div>
 			</div>
