@@ -21,23 +21,23 @@
                 
 		<div class="login-box border">
 		
-					<form>
+					<form th:action="@{/home}" method="post">
 						<h1><span class="text-light">Iniciar Sesion</span></h1>
 	
 						<div class="form-group row">
-							<label for="..." class="col-sm-2 col-form-label text-light">Usuario</label>
-							<br><input type="text" placeholder="Enter Username"	class="form-control">							
+							<label for="correo" class="col-sm-2 col-form-label text-light">Usuario</label>
+							<br><input type="text" name="correo" placeholder="Enter Username"	class="form-control">							
 						</div>
 	
 						<div class="form-group row">
-							<label for="..." class="col-sm-2 col-form-label text-light">Contraseña</label>
-							<br> <input type="password" placeholder="Enter Password" class="form-control">
+							<label for="password" class="col-sm-2 col-form-label text-light">Contraseña</label>
+							<br> <input type="password" name="password" placeholder="Enter Password" class="form-control">
 	
 						</div>
 						
-						<div class="row align-items-center">
-							<a class="btn btn-light " href="/perfil">Ingresar</a>
-						</div>
+						<div class="d-grid gap-2">
+								<input type="sumbit" class="btn btn-primary" value="Log In">
+							</div>
 						
 						<a href="/turista/registrar" class="text-light">¿No tienes una cuenta? Registrate</a>
 					</form>
