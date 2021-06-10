@@ -95,12 +95,12 @@ public class PoiController {
 				model.addAttribute("pois", poiService.obtenerTodosPois());
 			return "mypois";
 		}
-		@PostMapping("value=\"/addpoi/guardar\", consumes = \"multipart/form-data\"")
+		@PostMapping(value="/addpoi/guardar", consumes= "multipart/form-data")
 		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws IOException {
 		
 		byte[] content = file.getBytes();
 		String base64 = Base64.getEncoder().encodeToString(content);
-		nuevoPoi.setFotografia(content);
+		nuevoPoi.setImagen(base64);
 		poiService.guardarPoi(nuevoPoi);		
 		
 	
