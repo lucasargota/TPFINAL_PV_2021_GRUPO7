@@ -27,11 +27,11 @@ public class TpfinalPv2021Grupo7Application implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		//inicializo un cliente para pruebas
-		//	turista.setApellido("user");
+		//turista.setApellido("user");
 				
-		//	turista.setNombre("user");
+			//turista.setNombre("user");
 			 
-		//	turista.setPais("Argentina");
+			//turista.setPais("Argentina");
 			
 		//	turista.setEmail("correo@gmail.com");
 			
