@@ -24,12 +24,20 @@ public class LoginTuristaServiceImp implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
+
+		System.out.print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		Turista turistaEncontrado = turistaDAO.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("cliente invalido"));
+		
+		
 		
 		List<GrantedAuthority> tipos = new ArrayList<>();
 		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(turistaEncontrado.getPais());
 		tipos.add(grantedAuthority);
 		 
+		
+		
+		
+		System.out.print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 		UserDetails user = (UserDetails) new User(email, turistaEncontrado.getPassword(),tipos);
 		
 		

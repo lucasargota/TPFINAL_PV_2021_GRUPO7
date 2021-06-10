@@ -1,6 +1,9 @@
 package ar.edu.unju.edm.controller;
 
 
+import java.io.IOException;
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import ar.edu.unju.edm.model.Poi;
 import ar.edu.unju.edm.service.IPoiService;
@@ -90,16 +95,19 @@ public class PoiController {
 				model.addAttribute("pois", poiService.obtenerTodosPois());
 			return "mypois";
 		}
-		@PostMapping("/addpoi/guardar")
-		public String guardarNuevoPoI (@ModelAttribute("unPoi") Poi nuevoPoi, Model model) {	
-			
-			poiService.guardarPoi(nuevoPoi);		
-			
+		@PostMapping("value=\"/addpoi/guardar\", consumes = \"multipart/form-data\"")
+		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws IOException {
 		
-				return "redirect:/poi/mostrar";
-					
+		byte[] content = file.getBytes();
+		String base64 = Base64.getEncoder().encodeToString(content);
+		nuevoPoi.setFotografia(content);
+		poiService.guardarPoi(nuevoPoi);		
+		
+	
+			return "redirect:/poi/mostrar";
 				
-		}
+			
+	}
 		
 
 }
