@@ -22,13 +22,21 @@ html{
 
 .login-box
 {
-	width: 320px;
+ width: 320px;
   height: 350px;
   background-color:#D83912;
-    border-radius: 20px;
+  border-radius: 20px;
   top: 50%;
   left: 50%;
   padding: 20px 30px;
+}
+
+.formpoi
+{
+	
+	background-color:rgb(192, 192, 192, 0.7);
+  	border-radius: 15px;
+  	padding: 30px 5px;
 }
 
 .center {	
