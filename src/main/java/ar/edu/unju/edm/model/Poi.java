@@ -34,12 +34,22 @@ public class Poi {
 	private int numeroCasa;
 	@Column
 	private String barrio;
+	public byte[] getFotografia() {
+		return fotografia;
+	}
+
+	public void setFotografia(byte[] fotografia) {
+		this.fotografia = fotografia;
+	}
+
 	@Column
 	private String localidad;
 	@Column
 	private int localizacionLatitud;
 	@Column
 	private int localizacionLongitud;
+	@Column
+	private byte[] fotografia;
 	
 	@ManyToOne
 	@JoinColumn(name = "id")
