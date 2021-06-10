@@ -34,7 +34,11 @@ public class PoiController {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("pois");
 		} 
-
+		@GetMapping("/pois/mostrar")
+		public String mostrarPois(Model model) {
+		model.addAttribute("pois", poiService.obtenerTodosPois());
+			return("mypois");
+		} 
 		
 		
 		@GetMapping("/poi/editar/{codigoPoi}")
