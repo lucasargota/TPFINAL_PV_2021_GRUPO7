@@ -1,119 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Agregar Punto de Interes</title>
-	<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
-	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
-	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
+<meta charset="UTF-8">
+<title>Agregar Punto de Interes</title>
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
 </head>
-<body class="">
-	
+<body class="fondo">
+
 	<!-- Header -->
 	<header>
 		<div th:insert="layouts/header :: header"></div>
 	</header>
 
-	<div class="container center">
-	
-		<div>
-			<h3 id='Titulos'><span class=colorTitulos>Agregar Punto de Interés</span></h3>
-			<br>
-		</div>
-		
+	<div class=" center">
+
 		<!-- FormAddPoi -->
 		<form class="needs-validation" novalidate id="formPoi"
 			th:object="${unPoi}"
 			th:action="${editMode}?@{/addpoi/modificar}:@{/addpoi/guardar}"
-			method="post">
+			method="post" enctype="multipart/form-data">
 
-			<div class="form-row justify-content-md-center">
-				<div class="col-md-6 mb-3">
-					<label for="name">Nombre</label> <input type="text"
-						class="form-control" id="name" th:field="*{nombre}"
-						value="Nombre" required>
-					<div class="invalid-feedback">Campo Requerido.</div>
-				</div>
-			</div>
+			<div class="formpoi">
 
-			<div class="form-row justify-content-md-center">
-				<div class="col-md-4 mb-3">
-					<label for="address">Calle</label> <input type="text"
-						class="form-control" id="address" th:field="*{calle}"
-						value="Ej. Independencia" required>
-					<div class="invalid-feedback">Campo Requerido.</div>
+				<div>
+					<h3 id='Titulos'>
+						<span class=colorTitulos>Agregar Punto de Interés</span>
+					</h3>
 				</div>
-				<div class="col-md-2 mb-3">
-					<label for="anumber">Número</label> <input type="number"
-						class="form-control" id="anumber" th:field="*{numeroCasa}"
-						value="Ej. 1446" required>
-					<div class="invalid-feedback">Por favor ingrese un número
-						válido.</div>
-				</div>
-			</div>
-			
-			<div class="form-row justify-content-md-center">
-				<div class="col-md-3 mb-3">
-					<label for="nbhd">Barrio</label> <input type="text"
-						class="form-control" id="nbhd" th:field="*{barrio}"
-						value="Ej. Ciudad de Nieva" required>
-					<div class="invalid-feedback">Campo Requerido.</div>
-				</div>
-				<div class="col-md-3 mb-3">
-					<label for="city">Localidad</label> <input type="text"
-						class="form-control" id="city" th:field="*{localidad}"
-						value="Ej. San Salvador de Jujuy" required>
-					<div class="invalid-feedback">Campo Requerido.</div>
-				</div>
-			</div>
 
-			<div class="form-row justify-content-md-center">
-				<div class="col-md-6 mb-3">
-					<label for="description">Descripción</label> <input type="text"
-						class="form-control" id="description" maxlength="240" size="240" th:field="*{descripcion}" required>
-					<div class="invalid-feedback">Se debe Agregar una descripción.</div>
+				<div class="form-row justify-content-md-center">
+					<div class="col-md-10 mb-3">
+						<label for="name">Nombre</label> <input type="text"
+							class="form-control" id="name" th:field="*{nombre}"
+							value="Nombre" required>
+						<div class="invalid-feedback">Campo Requerido.</div>
+					</div>
 				</div>
-			</div>
-			
-			<div class="form-row justify-content-md-center">
-				<div class="custom-file col-md-6">
-					<input type="file" class="custom-file-input" id="customFile"> <label
-						class="custom-file-label" for="customFile">Elegir foto</label>
-				</div>
-			</div>
 
-			<br>
-			
-			<div class="form-row justify-content-md-center">
-				<div class="col-md-3 mb-3">
-					<label for="tag">Etiqueta</label> <select class="custom-select"
-						id="tag" th:field="*{etiqueta}">
-						<option selected disabled value="">Elegir</option>
-						<option value="Cultura">Cultura</option>
-						<option value="Naturaleza">Naturaleza</option>
-						<option value="Aventura">Aventura</option>
-						<option value="Deportes">Deportes</option>
-						<option value="Gastronomia">Gastronomia</option>
-					</select>
+				<div class="form-row justify-content-md-center">
+					<div class="col-md-6 mb-3">
+						<label for="address">Calle</label> <input type="text"
+							class="form-control" id="address" th:field="*{calle}"
+							value="Ej. Independencia" required>
+						<div class="invalid-feedback">Campo Requerido.</div>
+					</div>
+					<div class="col-md-4 mb-3">
+						<label for="anumber">Número</label> <input type="number"
+							class="form-control" id="anumber" th:field="*{numeroCasa}"
+							value="Ej. 1446" required>
+						<div class="invalid-feedback">Por favor ingrese un número
+							válido.</div>
+					</div>
 				</div>
-				<div class="col-md-3 mb-3">
-					<label for="website">Sitio Web</label> <input type="url"
-						class="form-control" id="website" th:field="*{sitioWeb}">
-					<div class="invalid-feedback">Debe copiar la dirección url del sitio..</div>
+
+				<div class="form-row justify-content-md-center">
+					<div class="col-md-5 mb-3">
+						<label for="nbhd">Barrio</label> <input type="text"
+							class="form-control" id="nbhd" th:field="*{barrio}"
+							value="Ej. Ciudad de Nieva" required>
+						<div class="invalid-feedback">Campo Requerido.</div>
+					</div>
+					<div class="col-md-5 mb-3">
+						<label for="city">Localidad</label> <input type="text"
+							class="form-control" id="city" th:field="*{localidad}"
+							value="Ej. San Salvador de Jujuy" required>
+						<div class="invalid-feedback">Campo Requerido.</div>
+					</div>
 				</div>
-			</div>
-			
-			
+
+				<div class="form-row justify-content-md-center">
+					<div class="col-md-10 mb-3">
+						<label for="description">Descripción</label> <input type="text"
+							class="form-control" id="description" maxlength="240" size="240"
+							th:field="*{descripcion}" required>
+						<div class="invalid-feedback">Se debe Agregar una
+							descripción.</div>
+					</div>
+				</div>
+
+				<div class="form-row justify-content-md-center">
+					<div class="custom-file col-md-10">
+						<input type="file" class="custom-file-input" id="customFile"
+							accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+							onchange="loadFile(event)"> <label
+							class="custom-file-label" for="customFile">Elegir foto</label> <img
+							id="output" style="padding-top: 2px; width: 146px;" />
+					</div>
+
+				</div>
+
+
+
+				<div class="form-row justify-content-md-center">
+					<div class="col-md-5 mb-3">
+						<label for="tag">Etiqueta</label> <select class="custom-select"
+							id="tag" th:field="*{etiqueta}">
+							<option selected disabled value="">Elegir</option>
+							<option value="Cultura">Cultura</option>
+							<option value="Naturaleza">Naturaleza</option>
+							<option value="Aventura">Aventura</option>
+							<option value="Deportes">Deportes</option>
+							<option value="Gastronomia">Gastronomia</option>
+						</select>
+					</div>
+					<div class="col-md-5 mb-3">
+						<label for="website">Sitio Web</label> <input type="url"
+							class="form-control" id="website" th:field="*{sitioWeb}">
+						<div class="invalid-feedback">Debe copiar la dirección url
+							del sitio..</div>
+					</div>
+				</div>
+
 				<div class="form-group row justify-content-md-center">
-					<div class="col-md-2">
+					<div class="col-md-3">
 						<input type="submit" class="btn btn-info btn-block"
 							th:value="${editMode}?'Modificar Poi':'Agregar'">
 					</div>
-					<div class="col-md-2">
-						<input class="btn btn-danger btn-block" type="reset" value="Cancelar">
+					<div class="col-md-3">
+						<input class="btn btn-danger btn-block" type="reset"
+							value="Cancelar">
 					</div>
 				</div>
-			
+			</div>
 		</form>
 
 	</div>
