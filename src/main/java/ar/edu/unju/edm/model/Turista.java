@@ -160,8 +160,4 @@ public class Turista {
 		return true;
 	}
 	
-	
-
-	
-	
 }

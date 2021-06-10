@@ -45,9 +45,8 @@ public class Poi {
 	@JoinColumn(name = "id")
 	private Turista otroTurista;
 
-
-
 	public Poi() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Poi(Integer codigoPoi, String nombre, String descripcion, String etiqueta, String sitioWeb, String calle,
@@ -271,9 +270,5 @@ public class Poi {
 			return false;
 		return true;
 	}
-
-
-
-
 
 }
