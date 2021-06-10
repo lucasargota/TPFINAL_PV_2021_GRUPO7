@@ -3,6 +3,17 @@ html{
 }
 .fondo{
 	background-color: rgb(255, 255, 255);
+	background:url(https://tripin.travel/wp-content/uploads/2016/07/Purmamarca_PAG6175-Foto-Hernan-Paganini-copia.jpg) repeat center top;
+}
+
+.fondoTurista
+{
+	background:url(https://images.clarin.com/2018/02/05/BkBhwAO8M_1256x620__1.jpg) repeat center top;
+	height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .btn-space {
@@ -17,17 +28,31 @@ html{
 .colorTitulos
 {
 	color: rgb(0, 0, 0);
+	opacity: 1;
 }
 
 .login-box
 {
-	width: 320px;
+ width: 320px;
   height: 350px;
   background-color:#D83912;
-    border-radius: 20px;
+  border-radius: 20px;
   top: 50%;
   left: 50%;
   padding: 20px 30px;
+}
+
+.formpoi
+{
+	
+	background-color:rgb(192, 192, 192, 0.7);
+  	border-radius: 15px;
+  	padding: 30px 5px;
+}
+
+h8, h6
+{
+	color:white ;	
 }
 
 .center {	
@@ -65,8 +90,9 @@ body {
 .perfilbox
 {
   text-align: center;
-  background-color: rgb(255, 255, 255);  
-  border: rgb(0, 0, 0) 1px solid;
+  border: rgb(255, 255, 255) 1px solid;
+  background-color:rgb(192, 192, 192, 0.4);
+  box-shadow: 0 0 30px;
   border-radius: 20px;
   margin: 20px;
 }
@@ -80,8 +106,8 @@ body {
 
 .avatar
 {
-	width: 200px;
-	height: 200px; 
+	width: 160px;
+	height: 160px; 
 	  border-radius: 50px;
 
 }

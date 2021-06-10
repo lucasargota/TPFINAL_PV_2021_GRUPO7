@@ -17,7 +17,7 @@ public interface ITuristaDAO extends CrudRepository<Turista, Integer>{
 	public List<Turista> obtenerTurista();
 	public Optional<Turista> findById(Integer id);
 
-	
+	public Optional<Turista> findByEmail(String email);
 	
 
 }

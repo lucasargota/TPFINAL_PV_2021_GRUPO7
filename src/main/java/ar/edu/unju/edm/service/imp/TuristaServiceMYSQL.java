@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.model.Turista;
@@ -21,6 +22,9 @@ public class TuristaServiceMYSQL implements ITuristaService{
 	@Override
 	public void guardarTurista(Turista unTurista) {
 		// TODO Auto-generated method stub
+		String pw = unTurista.getPassword();
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+		unTurista.setPassword(bCryptPasswordEncoder.encode(pw));
 		turistaDAO.save(unTurista);
 	}
 
@@ -71,6 +75,13 @@ public class TuristaServiceMYSQL implements ITuristaService{
 		// TODO Auto-generated method stub
 		Turista turistaEliminar = turistaDAO.findById(id).orElseThrow(()->new Exception("El turista no fue encontrado"));
 		turistaDAO.delete(turistaEliminar);
+	}
+
+	@Override
+	public Turista encontrarPorEmail(String email) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return turistaDAO.findByEmail(email).orElseThrow(()->new Exception("El turista no fue encontrado"));
 	}
 
 }
