@@ -33,20 +33,20 @@
 							<img class="avatar" src="https://images.vexels.com/media/users/3/137047/isolated/preview/5831a17a290077c646a48c4db78a81bb-icono-de-perfil-de-usuario-azul-by-vexels.png"/>
 					</div>									
 					
-						<div th:each="t : ${turistas}">
-								<div style="width: 15rem;">
-									<div class="titulos ">
-										<h6>Nombre de Usuario</h6>
-										<h8 th:text="${t.nombre}">Nombre</h8>
-										
-										<h6>Apellido de Usuario</h6>
-										<h8 th:text="${t.apellido}">Apellido</h8>
-										
-										<h6>Email</h6>
-										<h8 th:text="${t.email}">Email</h8>
-										
-										<h6>Pais</h6>
-										<h8 th:text="${t.pais}">Pais</h8>							
+						<div th:object="${unTurista}">
+                                <div style="width: 15rem;">
+                                    <div class="titulos ">
+                                        <h6>Nombre de Usuario</h6>
+                                        <h8 th:text="${unTurista.nombre}">Nombre</h8>
+
+                                        <h6>Apellido de Usuario</h6>
+                                        <h8 th:text="${unTurista.apellido}">Apellido</h8>
+
+                                        <h6>Email</h6>
+                                        <h8 th:text="${unTurista.email}">Email</h8>
+
+                                        <h6>Pais</h6>
+                                        <h8 th:text="${unTurista.pais}">Pais</h8>						
 									</div>
 								</div>
 						</div>
