@@ -18,7 +18,8 @@
 	
 		<!-- FormAgregarTurista -->
 		
-		<form class="needs-validation" novalidate id="formTurista" th:object="${unTurista}" th:action="${editMode}?@{/turista/registrar}:@{/turista/guardar}" method="post">
+		<form class="needs-validation" novalidate id="formTurista" th:object="${unTurista}" th:action="${editMode}?@{/turista/modificar}:@{/turista/guardar}" method="post">
+			 <input type="hidden" th:field="*{id}" th:if="${editMode}" >
 			<div class="container">
 			<br>
 			<div class="form-row justify-content-md-center">
@@ -313,8 +314,9 @@
 				</div>
 			</div> -->
 			<div class="form-row justify-content-md-center">
-				<button class="btn btn-info col-4 btn-space" type="submit"
-					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Crear Cuenta</button>
+				<input type="submit" class="btn btn-info col-4 btn-space"
+                            th:value="${editMode}?'Modificar Turista':'Agregar'">
+				
 				<input class="btn btn-danger col-4 btn-space" type="reset" value="Cancelar">
 			</div>
 			

@@ -26,7 +26,7 @@
 			<div class="row justify-content-md-center">
 			<div class="col -6 col-sm-6">
 			<div class="perfilbox">
-			<h1 id='Titulos'><span class=text-light>Mi Perfil</span></h1>
+			<h1 id='Titulos'><span class="text-light">Mi Perfil</span></h1>
 			<br>
 				<div class="row justify-content-md-center">
 					<div class="imgusuario">
@@ -54,22 +54,54 @@
 				</div>
 				<!-- Botones -->
 				<div class="form-row justify-content-md-end">
-				<button class="btn btn-info col-4 btn-space" type="submit"
-					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Modificar Perfil</button>
-				<button class="btn btn-danger col-4 btn-space" type="submit" 
-					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Eliminar Perfil</button>
+				<a th:href="@{'/turista/editar/'+${unTurista.id}}"class="btn btn-info col-4 btn-space">Modificar Perfil</a>
+				<a th:onclick="'javascript:confirmarEliminar(\''+${unTurista.id}+'\');'" class="btn btn-danger col-4 btn-space text-light">Eliminar Perfil</a>
 			</div>
 			</div>
 			</div>
 			<br>
 		</div>
 	</div>
-
+	
+	<!-- Modal para eliminar -->
+	
+	<div class="modal" tabindex="-1" id="modalEliminar">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmar Eliminar</h5>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="eliminarModalTitulo">
+					<p>Su perfil será eliminado y no se prodrá recuperar, ¿Esta Seguro?.</p>
+				</div>
+				<input type="hidden" id="idTurista" name="turistaId" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger" th:onclick="eliminarTurista()">Si, Eliminar mi Perfil</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <!-- Footer -->
 	<footer>
 		<div th:insert="layouts/footer :: footer"></div>
 	</footer>
+	
+<!-- Scripts -->
+	
+	<script type="text/javascript">
+		function confirmarEliminar(id) {
+			$('#modalEliminar').modal('show');
+			$("#idTurista").val(id);
+		}
+
+		function eliminarTurista() {
+			var id = $("#idTurista").val();
+			window.location = "/turista/eliminarTurista/" + id;
+		}
+	</script>
 
   <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript"
         src="webjars/jquery/3.5.1/jquery.min.js"></script>
