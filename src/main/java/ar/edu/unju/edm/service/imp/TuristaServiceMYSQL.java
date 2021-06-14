@@ -53,6 +53,9 @@ public class TuristaServiceMYSQL implements ITuristaService{
 		Turista turistaAModificar = turistaDAO.findById(unTuristaModificado.getId()).orElseThrow(()->new Exception("El Turista no fue encontrado"));
 		 
 		cambiarTurista(unTuristaModificado, turistaAModificar);
+		String pw = unTuristaModificado.getPassword();
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+		unTuristaModificado.setPassword(bCryptPasswordEncoder.encode(pw));
 		turistaDAO.save(turistaAModificar);
 		
 	}
@@ -63,7 +66,10 @@ public class TuristaServiceMYSQL implements ITuristaService{
 		hacia.setLocalizacionLongitud(desde.getLocalizacionLongitud());
 		hacia.setNombre(desde.getNombre());
 		hacia.setPais(desde.getPais());
-		hacia.setPassword(desde.getPassword());
+		String pw = desde.getPassword();
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+		hacia.setPassword(bCryptPasswordEncoder.encode(pw));
+		//hacia.setPassword(desde.getPassword());
 		hacia.setPuntos(desde.getPuntos());
 		
 		}

@@ -67,7 +67,7 @@ ITuristaService turistaService;
 		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());		
 		return "turistas";
 	}
-	@GetMapping("/turista/eliminarturista/{id}")
+	@GetMapping("/turista/eliminarTurista/{id}")
 	public String eliminarTurista(Model model, @PathVariable(name="id") Integer id) {
 		
 		try {
@@ -76,7 +76,7 @@ ITuristaService turistaService;
 		catch(Exception e){
 			model.addAttribute("listErrorMessage",e.getMessage());
 		}			
-		return "turistas";
+		return "redirect:/home";
 	}
 	@GetMapping("/cancelar/turista")
 	public String cancelar() {
@@ -107,6 +107,6 @@ ITuristaService turistaService;
 				model.addAttribute("editMode", "true");
 			}		
 			model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
-		return "turistas";
+		return "redirect:/perfil";
 	}
 }
