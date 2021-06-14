@@ -39,7 +39,7 @@ public class PoiController {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("pois");
 		} 
-		@GetMapping("/pois/mostrar")
+		@GetMapping("/poi/mispuntos")
 		public String mostrarPois(Model model) {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("mypois");
@@ -59,7 +59,7 @@ public class PoiController {
 				model.addAttribute("editMode", "false");
 			}				
 			model.addAttribute("pois", poiService.obtenerTodosPois());		
-			return "mypois";
+			return "addpoi";
 		}
 		
 		@GetMapping("/poi/eliminarPoi/{codigoPoi}")

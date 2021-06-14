@@ -16,29 +16,84 @@
 		<div th:insert="layouts/header :: header"></div>
 	</header>
 
-	<div class="container">
-		<div class="row col-md-12">
-			<div th:each="...">
+	<div class="container center">
+
+		<div>
+			<h3 id='Titulos'>
+				<span class=colorTitulos>Mis Puntos de Interés</span>
+			</h3>
+			<br> <br>
+		</div>
+
+		<div class="row justify-content-md-center">
+			<div th:each="p : ${pois}">
 				<div class="col-md-4">
 					<div class="card" style="width: 15rem;">
-  						<img src="..." class="card-img-top" alt="hola">
+						<img src="" class="card-img-top" alt="">
 						<div class="card-body">
-							<h5 class="card-title" th:text="${...}">Nombre del Lugar</h5>
-							<p class="card-text" th:text="${...}">Ubicacion</p>
+							<img th:src="*{'data:;base64,'+p.imagen}" class="card-img-top"
+								alt="hola">
+							<h5 class="card-title" th:text="${p.nombre}">Nombre</h5>
+							<p class="card-text" th:text="${p.descripcion}">Descripcion</p>
+							<p class="card-text" th:text="${p.localidad}">Localidad</p>
+							<a class="card-text" th:href="${p.sitioWeb}">Sitio Web</a> <a
+								href="#" th:href="@{'/poi/editar/'+${p.codigoPoi}}"> <i
+								class="fa fa-edit"></i></a> <a
+								th:onclick="'javascript:confirmarEliminar(\''+${p.codigoPoi}+'\');'">
+								<i class="fa fa-trash-alt"></i>
+							</a>
 						</div>
 					</div>
-					<br>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
+	<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog"
+		aria-labelledby="eliminarModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="eliminarModalTitulo">Confirmar
+						Eliminar</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<h6>Se eliminará el poi seleccionado.</h6>
+				</div>
+				<input type="hidden" id="codigoPoi" name="HiddenInput" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary"
+						th:onclick="eliminarPoi()">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Footer -->
 	<footer>
 		<div th:insert="layouts/footer :: footer"></div>
 	</footer>
 
 	<!-- Scripts -->
+
+	<script type="text/javascript">
+		function confirmarEliminar(codigoPoi) {
+			$('#modalEliminar').modal('show');
+			$("#identificadorPoi").val(codigoPoi);
+		}
+
+		function eliminarPoi() {
+			var id = $("#identificadorPoi").val();
+			window.location = "eliminarPoi/" + codigoPoi;
+		}
+	</script>
+
 	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
 		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
 	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
