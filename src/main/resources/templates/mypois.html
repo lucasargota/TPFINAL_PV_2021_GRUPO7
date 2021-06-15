@@ -64,7 +64,7 @@
 				<div class="modal-body">
 					<h6>Se eliminará el poi seleccionado.</h6>
 				</div>
-				<input type="hidden" id="codigoPoi" name="HiddenInput" />
+				<input type="hidden" id="identificadorPoi" name="HiddenInput" />
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Cancelar</button>
@@ -83,14 +83,14 @@
 	<!-- Scripts -->
 
 	<script type="text/javascript">
-		function confirmarEliminar(codigoPoi) {
+		function confirmarEliminar(id) {
 			$('#modalEliminar').modal('show');
-			$("#identificadorPoi").val(codigoPoi);
+			$("#identificadorPoi").val(id);
 		}
 
 		function eliminarPoi() {
 			var id = $("#identificadorPoi").val();
-			window.location = "eliminarPoi/" + codigoPoi;
+			window.location = "/poi/eliminarPoi/" + id;
 		}
 	</script>
 
