@@ -45,6 +45,7 @@ public class PoiController {
 			return("mypois");
 		} 
 		
+		//
 		
 		@GetMapping("/poi/editar/{codigoPoi}")
 		public String editarPoi(Model model, @PathVariable(name="codigoPoi") Integer codigoPoi) throws Exception {		
