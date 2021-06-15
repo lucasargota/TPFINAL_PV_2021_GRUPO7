@@ -19,11 +19,11 @@
 	<div class=" center">
 
 		<!-- FormAddPoi -->
-		<form class="needs-validation" novalidate id="formPoi"
-			th:object="${unPoi}"
+		<form class="needs-validation" novalidate id="formPoi" th:object="${unPoi}"
 			th:action="${editMode}?@{/poi/modificar}:@{/addpoi/guardar}"
 			method="post" enctype="multipart/form-data">
-
+			 <input type="hidden" th:field="*{codigoPoi}"th:if="${editMode}">
+				
 			<div class="formpoi">
 
 				<div>

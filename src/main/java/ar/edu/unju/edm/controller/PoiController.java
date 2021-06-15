@@ -63,16 +63,16 @@ public class PoiController {
 			return "addpoi";
 		}
 		
-		@GetMapping("/poi/eliminarPoi/{codigoPoi}")
-		public String eliminarPoi(Model model, @PathVariable(name="codigoPoi") Integer codigoPoi) {
+		@GetMapping("/poi/eliminarPoi/{id}")
+		public String eliminarPoi(Model model, @PathVariable(name="id") Integer id) {
 			
 			try {
-				poiService.eliminarPoi(codigoPoi);			
+				poiService.eliminarPoi(id);			
 			}
 			catch(Exception e){
 				model.addAttribute("listErrorMessage",e.getMessage());
 			}			
-			return "mypois";
+			return "/poi/agregar";
 		}
 		@GetMapping("/cancelar")
 		public String cancelar() {
@@ -82,19 +82,21 @@ public class PoiController {
 		//Post
 		@PostMapping("/poi/modificar")
 		public String modificarPoi(@ModelAttribute("unPoi") Poi poiModificado, Model model) {
-			try {
+			try {  	
+					System.out.println("si funca");
 					poiService.modificarPoi(poiModificado);
 					model.addAttribute("unPoi", new Poi());				
 					model.addAttribute("editMode", "false");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
+					System.out.println("no funca ");
 					model.addAttribute("formUsuarioErrorMessage",e.getMessage());
 					model.addAttribute("unPoi", poiModificado);			
 					model.addAttribute("pois", poiService.obtenerTodosPois());
 					model.addAttribute("editMode", "true");
 				}		
 				model.addAttribute("pois", poiService.obtenerTodosPois());
-			return "mypois";
+			return "redirect:/poi/mispuntos";
 		}
 		@PostMapping(value="/addpoi/guardar", consumes= "multipart/form-data")
 		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws IOException {
