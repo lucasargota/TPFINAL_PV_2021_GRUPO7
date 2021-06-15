@@ -50,9 +50,15 @@ html{
   	padding: 30px 5px;
 }
 
-h8, h6
+h8
 {
-	color:white ;	
+  color: rgb(255, 255, 255);
+}
+
+h6
+{
+	color:white ;
+	text-decoration: underline;	
 }
 
 .center {	

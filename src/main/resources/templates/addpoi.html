@@ -21,7 +21,7 @@
 		<!-- FormAddPoi -->
 		<form class="needs-validation" novalidate id="formPoi"
 			th:object="${unPoi}"
-			th:action="${editMode}?@{/addpoi/modificar}:@{/addpoi/guardar}"
+			th:action="${editMode}?@{/poi/modificar}:@{/addpoi/guardar}"
 			method="post" enctype="multipart/form-data">
 
 			<div class="formpoi">
@@ -36,7 +36,7 @@
 					<div class="col-md-10 mb-3">
 						<label for="name">Nombre</label> <input type="text"
 							class="form-control" id="name" th:field="*{nombre}"
-							value="Nombre" required>
+							placeholder="Juan Borrego" required>
 						<div class="invalid-feedback">Campo Requerido.</div>
 					</div>
 				</div>
@@ -45,13 +45,13 @@
 					<div class="col-md-6 mb-3">
 						<label for="address">Calle</label> <input type="text"
 							class="form-control" id="address" th:field="*{calle}"
-							value="Ej. Independencia" required>
+							placeholder="Belgrano" required>
 						<div class="invalid-feedback">Campo Requerido.</div>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="anumber">Número</label> <input type="number"
 							class="form-control" id="anumber" th:field="*{numeroCasa}"
-							value="Ej. 1446" required>
+							placeholder="111" required>
 						<div class="invalid-feedback">Por favor ingrese un número
 							válido.</div>
 					</div>
@@ -61,13 +61,13 @@
 					<div class="col-md-5 mb-3">
 						<label for="nbhd">Barrio</label> <input type="text"
 							class="form-control" id="nbhd" th:field="*{barrio}"
-							value="Ej. Ciudad de Nieva" required>
+							placeholder="San Pedrito" required>
 						<div class="invalid-feedback">Campo Requerido.</div>
 					</div>
 					<div class="col-md-5 mb-3">
 						<label for="city">Localidad</label> <input type="text"
 							class="form-control" id="city" th:field="*{localidad}"
-							value="Ej. San Salvador de Jujuy" required>
+							placeholder="San Salvador de Jujuy" required>
 						<div class="invalid-feedback">Campo Requerido.</div>
 					</div>
 				</div>
@@ -82,18 +82,19 @@
 					</div>
 				</div>
 
-				<div class="form-row justify-content-md-center">
-					<div class="custom-file col-md-10">
-						<input type="file" class="custom-file-input" id="customFile"
-							accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
-							onchange="loadFile(event)"> <label
-							class="custom-file-label" for="customFile">Elegir foto</label> <img
-							id="output" style="padding-top: 2px; width: 146px;" />
-					</div>
-
+				<div class="form-row justify-content-md-center">	
+				<div class="custom-file col-md-10">
+  					<input type="file" name="file" class="custom-file-input" id="file"
+  					accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+						onchange="loadFile(event)" required>
+						<div class="invalid-feedback">Se debe Agregar una
+							foto.</div>	 <img id="output"
+						style="padding-top: 2px; width: 146px;"/>
+					<label class="custom-file-label" for="file">Elegir Foto</label>
 				</div>
-
-
+				</div>
+				<br>
+					
 
 				<div class="form-row justify-content-md-center">
 					<div class="col-md-5 mb-3">
@@ -111,7 +112,7 @@
 						<label for="website">Sitio Web</label> <input type="url"
 							class="form-control" id="website" th:field="*{sitioWeb}">
 						<div class="invalid-feedback">Debe copiar la dirección url
-							del sitio..</div>
+							del sitio.</div>
 					</div>
 				</div>
 

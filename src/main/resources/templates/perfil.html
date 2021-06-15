@@ -26,27 +26,27 @@
 			<div class="row justify-content-md-center">
 			<div class="col -6 col-sm-6">
 			<div class="perfilbox">
-			<h1 id='Titulos'><span class=text-light>Mi Perfil</span></h1>
+			<h1 id='Titulos'><span class="text-light">Mi Perfil</span></h1>
 			<br>
 				<div class="row justify-content-md-center">
 					<div class="imgusuario">
 							<img class="avatar" src="https://images.vexels.com/media/users/3/137047/isolated/preview/5831a17a290077c646a48c4db78a81bb-icono-de-perfil-de-usuario-azul-by-vexels.png"/>
 					</div>									
 					
-						<div th:each="t : ${turistas}">
-								<div style="width: 15rem;">
-									<div class="titulos ">
-										<h6>Nombre de Usuario</h6>
-										<h8 th:text="${t.nombre}">Nombre</h8>
-										
-										<h6>Apellido de Usuario</h6>
-										<h8 th:text="${t.apellido}">Apellido</h8>
-										
-										<h6>Email</h6>
-										<h8 th:text="${t.email}">Email</h8>
-										
-										<h6>Pais</h6>
-										<h8 th:text="${t.pais}">Pais</h8>							
+						<div th:object="${unTurista}">
+                                <div style="width: 15rem;">
+                                    <div class="titulos ">
+                                        <h6>Nombre de Usuario</h6>
+                                        <h8 th:text="${unTurista.nombre}">Nombre</h8>
+
+                                        <h6>Apellido de Usuario</h6>
+                                        <h8 th:text="${unTurista.apellido}">Apellido</h8>
+
+                                        <h6>Email</h6>
+                                        <h8 th:text="${unTurista.email}">Email</h8>
+
+                                        <h6>Pais</h6>
+                                        <h8 th:text="${unTurista.pais}">Pais</h8>						
 									</div>
 								</div>
 						</div>
@@ -54,22 +54,54 @@
 				</div>
 				<!-- Botones -->
 				<div class="form-row justify-content-md-end">
-				<button class="btn btn-info col-4 btn-space" type="submit"
-					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Modificar Perfil</button>
-				<button class="btn btn-danger col-4 btn-space" type="submit" 
-					th:value="${editMode}?'Modificar Turista':'Agregar Turista'">Eliminar Perfil</button>
+				<a th:href="@{'/turista/editar/'+${unTurista.id}}"class="btn btn-info col-4 btn-space">Modificar Perfil</a>
+				<a th:onclick="'javascript:confirmarEliminar(\''+${unTurista.id}+'\');'" class="btn btn-danger col-4 btn-space text-light">Eliminar Perfil</a>
 			</div>
 			</div>
 			</div>
 			<br>
 		</div>
 	</div>
-
+	
+	<!-- Modal para eliminar -->
+	
+	<div class="modal" tabindex="-1" id="modalEliminar">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmar Eliminar</h5>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="eliminarModalTitulo">
+					<p>Su perfil será eliminado y no se prodrá recuperar, ¿Esta Seguro?.</p>
+				</div>
+				<input type="hidden" id="idTurista" name="turistaId" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger" th:onclick="eliminarTurista()">Si, Eliminar mi Perfil</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <!-- Footer -->
 	<footer>
 		<div th:insert="layouts/footer :: footer"></div>
 	</footer>
+	
+<!-- Scripts -->
+	
+	<script type="text/javascript">
+		function confirmarEliminar(id) {
+			$('#modalEliminar').modal('show');
+			$("#idTurista").val(id);
+		}
+
+		function eliminarTurista() {
+			var id = $("#idTurista").val();
+			window.location = "/turista/eliminarTurista/" + id;
+		}
+	</script>
 
   <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript"
         src="webjars/jquery/3.5.1/jquery.min.js"></script>

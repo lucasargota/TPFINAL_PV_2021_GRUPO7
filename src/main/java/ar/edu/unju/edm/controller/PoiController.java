@@ -39,7 +39,7 @@ public class PoiController {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("pois");
 		} 
-		@GetMapping("/pois/mostrar")
+		@GetMapping("/poi/mispuntos")
 		public String mostrarPois(Model model) {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("mypois");
@@ -59,7 +59,7 @@ public class PoiController {
 				model.addAttribute("editMode", "false");
 			}				
 			model.addAttribute("pois", poiService.obtenerTodosPois());		
-			return "mypois";
+			return "addpoi";
 		}
 		
 		@GetMapping("/poi/eliminarPoi/{codigoPoi}")
@@ -95,12 +95,12 @@ public class PoiController {
 				model.addAttribute("pois", poiService.obtenerTodosPois());
 			return "mypois";
 		}
-		@PostMapping("value=\"/addpoi/guardar\", consumes = \"multipart/form-data\"")
+		@PostMapping(value="/addpoi/guardar", consumes= "multipart/form-data")
 		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws IOException {
 		
 		byte[] content = file.getBytes();
 		String base64 = Base64.getEncoder().encodeToString(content);
-		nuevoPoi.setFotografia(content);
+		nuevoPoi.setImagen(base64);
 		poiService.guardarPoi(nuevoPoi);		
 		
 	

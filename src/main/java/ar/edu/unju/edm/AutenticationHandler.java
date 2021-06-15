@@ -48,10 +48,10 @@ public class AutenticationHandler implements AuthenticationSuccessHandler {
 			redirectStrategy.sendRedirect(request, response, "/perfil");
 		} else {
 			if (userConsultor) {
-				redirectStrategy.sendRedirect(request, response, "/consultor");
+				redirectStrategy.sendRedirect(request, response, "/perfil");
 			} else {
 				if (userRegistrador) {
-					redirectStrategy.sendRedirect(request, response, "/registrador");
+					redirectStrategy.sendRedirect(request, response, "/perfil");
 				} else {
 					throw new IllegalStateException();
 				}

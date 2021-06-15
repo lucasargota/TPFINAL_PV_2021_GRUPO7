@@ -2,6 +2,8 @@ package ar.edu.unju.edm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +29,10 @@ ITuristaService turistaService;
 	} 
 	
 	@GetMapping("/perfil")
-	public String perfilTurista(Model model) {
-		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
-		//UserDetails userCliente = (UserDetails) authentication.getPrincipal();
-		//model.addAttribute("unturista", turistaService.encontrarPorEmail(userCliente.getUsername()));
+	public String perfilTurista(Model model, Authentication authentication) throws Exception {
+		//model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
+		UserDetails userTurista = (UserDetails) authentication.getPrincipal();
+		model.addAttribute("unTurista", turistaService.encontrarPorEmail(userTurista.getUsername()));
 		return("perfil");
 	} 
 	
@@ -65,7 +67,7 @@ ITuristaService turistaService;
 		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());		
 		return "turistas";
 	}
-	@GetMapping("/turista/eliminarturista/{id}")
+	@GetMapping("/turista/eliminarTurista/{id}")
 	public String eliminarTurista(Model model, @PathVariable(name="id") Integer id) {
 		
 		try {
@@ -74,7 +76,7 @@ ITuristaService turistaService;
 		catch(Exception e){
 			model.addAttribute("listErrorMessage",e.getMessage());
 		}			
-		return "turistas";
+		return "redirect:/home";
 	}
 	@GetMapping("/cancelar/turista")
 	public String cancelar() {
@@ -105,6 +107,6 @@ ITuristaService turistaService;
 				model.addAttribute("editMode", "true");
 			}		
 			model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
-		return "turistas";
+		return "redirect:/perfil";
 	}
 }

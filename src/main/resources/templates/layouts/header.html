@@ -36,12 +36,14 @@
 							aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" th:href="@{/poi/mostrar}">Puntos</a>
 							<a class="dropdown-item" th:href="@{/poi/agregar}">Agregar</a> <a
-								class="dropdown-item" href="#">Mis puntos de interes</a>
+								class="dropdown-item" th:href="@{/poi/mispuntos}">Mis puntos de interes</a>
 						</div></li>
 						
-					<li class="nav-item active"><a class="nav-link" th:href="@{/home}">Cerrar Sesion
-							<span class="sr-only">(current)</span>
-					</a></li>
+					<li class="nav-item active"><a class="btn btn-outline-secondary" href="#" th:href="@{/logout}"> 
+				<span th:text="${#authentication.getPrincipal().getUsername()}">
+				</span> - 
+				<span> Salir  </span><span class="float-right">
+				<i class="fas fa-sign-out-alt"></i></span></a></li>
 				</ul>
 			</div>
 		</nav>

@@ -34,14 +34,6 @@ public class Poi {
 	private int numeroCasa;
 	@Column
 	private String barrio;
-	public byte[] getFotografia() {
-		return fotografia;
-	}
-
-	public void setFotografia(byte[] fotografia) {
-		this.fotografia = fotografia;
-	}
-
 	@Column
 	private String localidad;
 	@Column
@@ -50,7 +42,17 @@ public class Poi {
 	private int localizacionLongitud;
 	@Column
 	private byte[] fotografia;
+	@Column(name = "prod_imagen", columnDefinition = "LONGBLOB")
+	private String imagen;
 	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "id")
 	private Turista otroTurista;
@@ -77,6 +79,14 @@ public class Poi {
 
 
 
+	public byte[] getFotografia() {
+		return fotografia;
+	}
+
+	public void setFotografia(byte[] fotografia) {
+		this.fotografia = fotografia;
+	}	
+	
 	public Integer getCodigoPoi() {
 		return codigoPoi;
 	}
