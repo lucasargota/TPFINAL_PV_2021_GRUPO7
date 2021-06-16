@@ -6,5 +6,5 @@ import java.util.List;
 import ar.edu.unju.edm.model.Poi;
 
 public class ListadoPois {
-	public static List<Poi> Pois = new ArrayList<Poi>();
+	public static List<Poi> pois = new ArrayList<Poi>();
 	}
