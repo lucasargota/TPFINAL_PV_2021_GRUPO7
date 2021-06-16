@@ -74,7 +74,7 @@ public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
 	@Override
 	public Turista_Poi encontrarUnTurista_Poi(Integer idTurista_Poi) throws Exception {
 		// TODO Auto-generated method stub
-		return turista_PoiDAO.findByIdTurista_Poi(idTurista_Poi).orElseThrow(()->new Exception("El Poi NO existe"));
+		return turista_PoiDAO.findByIdTurista_Poi(idTurista_Poi).orElseThrow(()->new Exception("El Turista_Poi NO existe"));
 	}
 
 }
