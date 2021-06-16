@@ -14,9 +14,14 @@ import ar.edu.unju.edm.model.Turista;
 
 public interface ITuristaDAO extends CrudRepository<Turista, Integer>{
 	@Query("from Turista c order by c.id")
+	
 	public List<Turista> obtenerTurista();
 	public Optional<Turista> findById(Integer id);
 
+	
+	
+	
+	
 	public Optional<Turista> findByEmail(String email);
 	
 
