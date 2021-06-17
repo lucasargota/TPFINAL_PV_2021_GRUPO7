@@ -1,5 +1,7 @@
 package ar.edu.unju.edm.model;
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -54,15 +56,22 @@ public class Poi {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "id")
-	private Turista otroTurista;
+	@JoinColumn(name = "idTurista")
+	private Turista turistaAutor;
 
 	public Poi() {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+
+
+	
+
 	public Poi(Integer codigoPoi, String nombre, String descripcion, String etiqueta, String sitioWeb, String calle,
-			int numeroCasa, String barrio, String localidad, int localizacionLatitud, int localizacionLongitud) {
+			int numeroCasa, String barrio, String localidad, int localizacionLatitud, int localizacionLongitud,
+			byte[] fotografia, String imagen, Turista turistaAutor) {
 		super();
 		this.codigoPoi = codigoPoi;
 		this.nombre = nombre;
@@ -75,9 +84,10 @@ public class Poi {
 		this.localidad = localidad;
 		this.localizacionLatitud = localizacionLatitud;
 		this.localizacionLongitud = localizacionLongitud;
+		this.fotografia = fotografia;
+		this.imagen = imagen;
+		this.turistaAutor = turistaAutor;
 	}
-
-
 
 	public byte[] getFotografia() {
 		return fotografia;
@@ -215,6 +225,14 @@ public class Poi {
 		this.localizacionLongitud = localizacionLongitud;
 	}
 
+	public Turista getTuristaAutor() {
+		return turistaAutor;
+	}
+
+	public void setTuristaAutor(Turista turistaAutor) {
+		this.turistaAutor = turistaAutor;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -224,12 +242,15 @@ public class Poi {
 		result = prime * result + ((codigoPoi == null) ? 0 : codigoPoi.hashCode());
 		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((etiqueta == null) ? 0 : etiqueta.hashCode());
+		result = prime * result + Arrays.hashCode(fotografia);
+		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
 		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
 		result = prime * result + localizacionLatitud;
 		result = prime * result + localizacionLongitud;
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + numeroCasa;
 		result = prime * result + ((sitioWeb == null) ? 0 : sitioWeb.hashCode());
+		result = prime * result + ((turistaAutor == null) ? 0 : turistaAutor.hashCode());
 		return result;
 	}
 
@@ -267,6 +288,13 @@ public class Poi {
 				return false;
 		} else if (!etiqueta.equals(other.etiqueta))
 			return false;
+		if (!Arrays.equals(fotografia, other.fotografia))
+			return false;
+		if (imagen == null) {
+			if (other.imagen != null)
+				return false;
+		} else if (!imagen.equals(other.imagen))
+			return false;
 		if (localidad == null) {
 			if (other.localidad != null)
 				return false;
@@ -287,6 +315,11 @@ public class Poi {
 			if (other.sitioWeb != null)
 				return false;
 		} else if (!sitioWeb.equals(other.sitioWeb))
+			return false;
+		if (turistaAutor == null) {
+			if (other.turistaAutor != null)
+				return false;
+		} else if (!turistaAutor.equals(other.turistaAutor))
 			return false;
 		return true;
 	}

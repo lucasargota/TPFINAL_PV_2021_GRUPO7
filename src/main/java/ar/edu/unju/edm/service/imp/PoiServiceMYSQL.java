@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.model.Poi;
+import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.repository.IPoiDAO;
 import ar.edu.unju.edm.service.IPoiService;
 @Service
@@ -38,14 +39,23 @@ public class PoiServiceMYSQL implements IPoiService{
 		return poiDAO.findByCodigoPoi(codigoPoi).orElseThrow(()->new Exception("El Poi NO existe"));
 	}
 	@Override
-	public void modificarPoi(Poi unPoiModificado) throws Exception {
+    public void modificarPoi(Poi unPoiModificado) throws Exception {
+        // TODO Auto-generated method stub
+        Poi poiAModificar = poiDAO.findByCodigoPoi(unPoiModificado.getCodigoPoi()).orElseThrow(()->new Exception("El Poi no fue encontrado"));
+
+        cambiarPoi(unPoiModificado, poiAModificar);
+        poiDAO.save(poiAModificar);
+
+    }
+	
+	
+	@Override
+	public List<Poi> obtenerMisPois(Turista turistaAutor) {
 		// TODO Auto-generated method stub
-		Poi poiAModificar = poiDAO.findByCodigoPoi(unPoiModificado.getCodigoPoi()).orElseThrow(()->new Exception("El Poi no fue encontrado"));
-		 
-		cambiarPoi(unPoiModificado, poiAModificar);
-		poiDAO.save(poiAModificar);
-		
+		return (List<Poi>) poiDAO.findAllByTuristaAutor(turistaAutor) ;
 	}
+	
+	
 	private void cambiarPoi(Poi desde, Poi hacia) {
 		hacia.setBarrio(desde.getBarrio());
 		hacia.setCalle(desde.getCalle());
