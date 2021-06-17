@@ -13,46 +13,45 @@
 <body class="fondoTurista">
 
 	<br>
-
-	<h1 id='Titulos'><span class=colorTitulos>Registrarse</span></h1>
 	
 		<!-- FormAgregarTurista -->
-		
+		<div class="container col-md-5">
+		<div class="formpoi">
 		<form class="needs-validation" novalidate id="formTurista" th:object="${unTurista}" th:action="${editMode}?@{/turista/modificar}:@{/turista/guardar}" method="post">
+			<h1 id='Titulos'><span class=colorTitulos>Registrarse</span></h1>
 			 <input type="hidden" th:field="*{id}" th:if="${editMode}" >
-			<div class="container">
 			<br>
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-4 mb-3 text-dark">
-					<label for="nomTurista">Nombre</label> <input type="text"
+				<div class="col-md-10 mb-3 text-dark">
+					<label for="nomTurista">Nombre/s</label> <input type="text"
 						class="form-control" id="nomTurista" th:field="*{nombre}"
-						value="Ej. Cerro de Siete Colores" required>
+						placeholder="Juan Ramon" required>
 					<div class="valid-feedback"></div>
 				</div>
 			</div>
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-4 mb-3">
-					<label for="apTurista">Apellido</label> 
-					<input type="text" class="form-control" id="apTurista" th:field="*{apellido}" value="Ej. Cerro de Siete Colores" required>
+				<div class="col-md-10 mb-3">
+					<label for="apTurista">Apellido/s</label> 
+					<input type="text" class="form-control" id="apTurista" th:field="*{apellido}" placeholder="Riquelme" required>
 					<div class="valid-feedback"></div>
 				</div>
 			</div>
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-4 mb-3">
+				<div class="col-md-10 mb-3">
 					<label for="emTurista">Email</label> 
-					<input type="email" class="form-control" id="emTurista" th:field="*{email}" value="Ej. Cerro de Siete Colores" required>
+					<input type="email" class="form-control" id="emTurista" th:field="*{email}" placeholder="myemail@yahoo.com" required>
 					<div class="valid-feedback"></div>
 				</div>
 			</div>
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-4 mb-3">
+				<div class="col-md-10 mb-3">
 					<label for="contrasenia">Contraseña</label> 
 					<input type="password" class="form-control" id="contrasenia" th:field="*{password}" value="Ej. Cerro de Siete Colores" required>
 					<div class="valid-feedback"></div>
 				</div>
 			</div>
 			<div class="form-row justify-content-md-center">
-				<div class="col-md-4 mb-3">
+				<div class="col-md-10 mb-3">
 					<label for="paisTurista">Pais</label> 
 					<select name="pais" class="form-control" id="paisTurista" th:field="*{pais}" value="Ej. Cerro de Siete Colores" required>
 					<option value="Elegir" id="AF">Elegir opción</option>
@@ -314,13 +313,14 @@
 				</div>
 			</div> -->
 			<div class="form-row justify-content-md-center">
-				<input type="submit" class="btn btn-info col-4 btn-space"
-                            th:value="${editMode}?'Modificar Turista':'Agregar'">
+				<input type="submit" class="btn btn-info col-2 btn-space"
+                            th:value="${editMode}?'Modificar':'Agregar'">
 				
-				<input class="btn btn-danger col-4 btn-space" type="reset" value="Cancelar">
+				<input class="btn btn-danger col-2 " type="reset" value="Cancelar">
 			</div>
 			
 		</form>
+		</div>
 		<br>
 		
 		<div class="form-row justify-content-md-center">

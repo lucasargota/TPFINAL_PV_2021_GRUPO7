@@ -79,6 +79,11 @@ public class PoiController {
 			return "redirect:/poi/agregar";
 		}
 		
+		@GetMapping("/detallespoi")
+		public String detalles(Model model) {
+			return "detallespoi";
+		}
+		
 		//Post
 		@PostMapping("/poi/modificar")
 		public String modificarPoi(@ModelAttribute("unPoi") Poi poiModificado, Model model) {
