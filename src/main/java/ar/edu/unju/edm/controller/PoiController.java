@@ -21,6 +21,7 @@ import ar.edu.unju.edm.model.Poi;
 import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.service.IPoiService;
 import ar.edu.unju.edm.service.ITuristaService;
+import ar.edu.unju.edm.service.ITurista_PoiService;
 
 
 
@@ -32,6 +33,9 @@ public class PoiController {
 	@Autowired
 	@Qualifier("implementacion2mysql")	
 	ITuristaService turistaService;
+	@Autowired
+	@Qualifier("implementacion3mysql")
+	ITurista_PoiService tpService;
 		//Get
 		@GetMapping("/poi/agregar")
 		public String cargarPoi(Model model) {
@@ -106,11 +110,7 @@ public class PoiController {
 			return "redirect:/poi/agregar";
 		}
 		
-		@GetMapping("/detallespoi")
-		public String detalles(Model model) {
-			return "detallespoi";
-		}
-		
+
 		//Post
 		@PostMapping("/poi/modificar")
 		public String modificarPoi(@RequestParam("file") MultipartFile file,@RequestParam("file2") MultipartFile file2,@RequestParam("file3") MultipartFile file3, @ModelAttribute("unPoi") Poi poiModificado, Model model) {
