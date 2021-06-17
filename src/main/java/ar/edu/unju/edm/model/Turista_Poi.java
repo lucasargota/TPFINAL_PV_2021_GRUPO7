@@ -18,7 +18,7 @@ public class Turista_Poi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Integer idTurista_Poi;
+	private Integer idTP;
 	
 	@Column
 	//@Max
@@ -41,13 +41,7 @@ public class Turista_Poi {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getIdTurista_Poi() {
-		return idTurista_Poi;
-	}
-
-	public void setIdTurista_Poi(Integer idTurista_Poi) {
-		this.idTurista_Poi = idTurista_Poi;
-	}
+	
 
 	public int getValoracion() {
 		return valoracion;
@@ -86,7 +80,7 @@ public class Turista_Poi {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
-		result = prime * result + ((idTurista_Poi == null) ? 0 : idTurista_Poi.hashCode());
+		result = prime * result + ((idTP == null) ? 0 : idTP.hashCode());
 		result = prime * result + ((otroPoi == null) ? 0 : otroPoi.hashCode());
 		result = prime * result + ((otroTurista == null) ? 0 : otroTurista.hashCode());
 		result = prime * result + valoracion;
@@ -107,10 +101,10 @@ public class Turista_Poi {
 				return false;
 		} else if (!comentario.equals(other.comentario))
 			return false;
-		if (idTurista_Poi == null) {
-			if (other.idTurista_Poi != null)
+		if (idTP == null) {
+			if (other.idTP != null)
 				return false;
-		} else if (!idTurista_Poi.equals(other.idTurista_Poi))
+		} else if (!idTP.equals(other.idTP))
 			return false;
 		if (otroPoi == null) {
 			if (other.otroPoi != null)
@@ -127,16 +121,30 @@ public class Turista_Poi {
 		return true;
 	}
 
-	public Turista_Poi(Integer idTurista_Poi, int valoracion, String comentario, Turista otroTurista, Poi otroPoi) {
+	public Turista_Poi(Integer idTP, int valoracion, String comentario, Turista otroTurista, Poi otroPoi) {
 		super();
-		this.idTurista_Poi = idTurista_Poi;
+		this.idTP = idTP;
 		this.valoracion = valoracion;
 		this.comentario = comentario;
 		this.otroTurista = otroTurista;
 		this.otroPoi = otroPoi;
 	}
 
+	public Integer getIdTP() {
+		return idTP;
+	}
+
+	public void setIdTP(Integer idTP) {
+		this.idTP = idTP;
+	}
+
+
 	
 	
-	
+
 }
+
+	
+	
+	
+
