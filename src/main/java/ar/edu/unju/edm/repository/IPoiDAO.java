@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import ar.edu.unju.edm.model.Poi;
+import ar.edu.unju.edm.model.Turista;
 
 @Repository
 public interface IPoiDAO extends CrudRepository<Poi, Integer> {
@@ -15,6 +16,9 @@ public interface IPoiDAO extends CrudRepository<Poi, Integer> {
 public List<Poi> obtenerPois();
 	
 	public Optional<Poi> findByCodigoPoi(int codigoPoi);
-	
+
+
+	public List<Poi> findAllByTuristaAutor(Turista turistaAutor);
+
 
 }

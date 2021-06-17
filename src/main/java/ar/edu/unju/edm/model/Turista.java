@@ -1,10 +1,13 @@
 package ar.edu.unju.edm.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -33,6 +36,9 @@ public class Turista {
 	private double localizacionLongitud;
 	@Column
 	private int puntos;
+	
+	@OneToMany(mappedBy = "turistaAutor", fetch = FetchType.EAGER)
+	private List<Poi> pois;
 	
 	public Turista() {
 		// TODO Auto-generated constructor stub
@@ -93,6 +99,14 @@ public class Turista {
 		this.puntos = puntos;
 	}
 
+	public List<Poi> getPois() {
+		return pois;
+	}
+
+	public void setPois(List<Poi> pois) {
+		this.pois = pois;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -108,6 +122,7 @@ public class Turista {
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((pais == null) ? 0 : pais.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((pois == null) ? 0 : pois.hashCode());
 		result = prime * result + puntos;
 		return result;
 	}
@@ -155,9 +170,16 @@ public class Turista {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (pois == null) {
+			if (other.pois != null)
+				return false;
+		} else if (!pois.equals(other.pois))
+			return false;
 		if (puntos != other.puntos)
 			return false;
 		return true;
 	}
+
+	
 	
 }

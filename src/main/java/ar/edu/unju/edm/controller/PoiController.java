@@ -1,11 +1,13 @@
 package ar.edu.unju.edm.controller;
 
 
-import java.io.IOException;
 import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import ar.edu.unju.edm.model.Poi;
+import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.service.IPoiService;
+import ar.edu.unju.edm.service.ITuristaService;
 
 
 
@@ -25,7 +29,9 @@ public class PoiController {
 	@Autowired
 	@Qualifier("implementacionmysql")	
 	IPoiService poiService; 
-
+	@Autowired
+	@Qualifier("implementacion2mysql")	
+	ITuristaService turistaService;
 		//Get
 		@GetMapping("/poi/agregar")
 		public String cargarPoi(Model model) {
@@ -39,10 +45,31 @@ public class PoiController {
 		model.addAttribute("pois", poiService.obtenerTodosPois());
 			return("pois");
 		} 
-		@GetMapping("/poi/mispuntos")
-		public String mostrarPois(Model model) {
-		model.addAttribute("pois", poiService.obtenerTodosPois());
-			return("mypois");
+		
+		@GetMapping("/poi/mispuntos" )
+		public String mostrarMisPoIs(Model model) {
+			
+			Authentication auth = SecurityContextHolder
+		            .getContext()
+		            .getAuthentication();
+		    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+		    
+		    try {
+				Turista turista = turistaService.encontrarPorEmail(userDetail.getUsername());
+				System.out.println("se encontro turista");
+				model.addAttribute("pois", poiService.obtenerMisPois(turista));
+				System.out.println("se encontraron los pois");
+				System.out.println("turista"+poiService.obtenerMisPois(turista));
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("no se encontro turista");
+			}
+			
+			
+	return("mypois");
+			
 		} 
 		
 		
@@ -96,11 +123,23 @@ public class PoiController {
 			return "mypois";
 		}
 		@PostMapping(value="/addpoi/guardar", consumes= "multipart/form-data")
-		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws IOException {
+		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws Exception {
 		
 		byte[] content = file.getBytes();
 		String base64 = Base64.getEncoder().encodeToString(content);
 		nuevoPoi.setImagen(base64);
+		
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+		
+		Turista turistaEncontrado = turistaService.encontrarPorEmail(userDetail.getUsername());
+			
+			
+			nuevoPoi.setTuristaAutor(turistaEncontrado);
+	
+		
 		poiService.guardarPoi(nuevoPoi);		
 		
 	
