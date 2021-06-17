@@ -99,7 +99,7 @@ public class PoiController {
 			catch(Exception e){
 				model.addAttribute("listErrorMessage",e.getMessage());
 			}			
-			return "/poi/agregar";
+			return "redirect:/poi/mispuntos";
 		}
 		@GetMapping("/cancelar")
 		public String cancelar() {
@@ -108,10 +108,27 @@ public class PoiController {
 		
 		//Post
 		@PostMapping("/poi/modificar")
-		public String modificarPoi(@ModelAttribute("unPoi") Poi poiModificado, Model model) {
+		public String modificarPoi(@RequestParam("file") MultipartFile file,@RequestParam("file2") MultipartFile file2,@RequestParam("file3") MultipartFile file3, @ModelAttribute("unPoi") Poi poiModificado, Model model) {
 			try {  	
 					System.out.println("si funca");
+					
+					
+						byte[] content = file.getBytes();
+					String base64 = Base64.getEncoder().encodeToString(content);
+					poiModificado.setImagen(base64);
+					
+					byte[] content2 = file2.getBytes();
+					String base65 = Base64.getEncoder().encodeToString(content2);
+					poiModificado.setImagen(base65);
+					
+					byte[] content3 = file3.getBytes();
+					String base66 = Base64.getEncoder().encodeToString(content3);
+					poiModificado.setImagen(base66);
+								
+					
 					poiService.modificarPoi(poiModificado);
+					
+					
 					model.addAttribute("unPoi", new Poi());				
 					model.addAttribute("editMode", "false");
 				} catch (Exception e) {
@@ -126,11 +143,25 @@ public class PoiController {
 			return "redirect:/poi/mispuntos";
 		}
 		@PostMapping(value="/addpoi/guardar", consumes= "multipart/form-data")
-		public String guardarNuevoPoI(@RequestParam("file") MultipartFile file, @ModelAttribute("unPoi") Poi nuevoPoi, Model model) throws Exception {
+		public String guardarNuevoPoI( @ModelAttribute("unPoi") Poi nuevoPoi,@RequestParam("file") MultipartFile file,@RequestParam("file2") MultipartFile file2,@RequestParam("file3") MultipartFile file3, Model model) throws Exception {
 		
 		byte[] content = file.getBytes();
 		String base64 = Base64.getEncoder().encodeToString(content);
 		nuevoPoi.setImagen(base64);
+		
+		
+		byte[] content2 = file2.getBytes();
+		String base65 = Base64.getEncoder().encodeToString(content2);
+		nuevoPoi.setImagen2(base65);
+		
+		
+		byte[] content3 = file3.getBytes();
+		String base66 = Base64.getEncoder().encodeToString(content3);
+		nuevoPoi.setImagen3(base66);
+		
+		
+		 
+		
 		
 		Authentication auth = SecurityContextHolder
 	            .getContext()

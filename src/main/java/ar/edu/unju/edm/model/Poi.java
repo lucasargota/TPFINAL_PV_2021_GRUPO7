@@ -44,8 +44,18 @@ public class Poi {
 	private int localizacionLongitud;
 	@Column
 	private byte[] fotografia;
-	@Column(name = "prod_imagen", columnDefinition = "LONGBLOB")
+	@Column(name = "imagen", columnDefinition = "LONGBLOB")
 	private String imagen;
+	
+	@Column
+	private byte[] fotografia2;
+	@Column(name = "imagen2", columnDefinition = "LONGBLOB")
+	private String imagen2;
+	
+	@Column
+	private byte[] fotografia3;
+	@Column(name = "imagen3", columnDefinition = "LONGBLOB")
+	private String imagen3;
 	
 	public String getImagen() {
 		return imagen;
@@ -69,9 +79,12 @@ public class Poi {
 
 	
 
+	
+
 	public Poi(Integer codigoPoi, String nombre, String descripcion, String etiqueta, String sitioWeb, String calle,
 			int numeroCasa, String barrio, String localidad, int localizacionLatitud, int localizacionLongitud,
-			byte[] fotografia, String imagen, Turista turistaAutor) {
+			byte[] fotografia, String imagen, byte[] fotografia2, String imagen2, byte[] fotografia3, String imagen3,
+			Turista turistaAutor) {
 		super();
 		this.codigoPoi = codigoPoi;
 		this.nombre = nombre;
@@ -86,6 +99,10 @@ public class Poi {
 		this.localizacionLongitud = localizacionLongitud;
 		this.fotografia = fotografia;
 		this.imagen = imagen;
+		this.fotografia2 = fotografia2;
+		this.imagen2 = imagen2;
+		this.fotografia3 = fotografia3;
+		this.imagen3 = imagen3;
 		this.turistaAutor = turistaAutor;
 	}
 
@@ -221,6 +238,38 @@ public class Poi {
 
 
 
+	public byte[] getFotografia2() {
+		return fotografia2;
+	}
+
+	public void setFotografia2(byte[] fotografia2) {
+		this.fotografia2 = fotografia2;
+	}
+
+	public String getImagen2() {
+		return imagen2;
+	}
+
+	public void setImagen2(String imagen2) {
+		this.imagen2 = imagen2;
+	}
+
+	public byte[] getFotografia3() {
+		return fotografia3;
+	}
+
+	public void setFotografia3(byte[] fotografia3) {
+		this.fotografia3 = fotografia3;
+	}
+
+	public String getImagen3() {
+		return imagen3;
+	}
+
+	public void setImagen3(String imagen3) {
+		this.imagen3 = imagen3;
+	}
+
 	public void setLocalizacionLongitud(int localizacionLongitud) {
 		this.localizacionLongitud = localizacionLongitud;
 	}
@@ -243,7 +292,11 @@ public class Poi {
 		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((etiqueta == null) ? 0 : etiqueta.hashCode());
 		result = prime * result + Arrays.hashCode(fotografia);
+		result = prime * result + Arrays.hashCode(fotografia2);
+		result = prime * result + Arrays.hashCode(fotografia3);
 		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
+		result = prime * result + ((imagen2 == null) ? 0 : imagen2.hashCode());
+		result = prime * result + ((imagen3 == null) ? 0 : imagen3.hashCode());
 		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
 		result = prime * result + localizacionLatitud;
 		result = prime * result + localizacionLongitud;
@@ -290,10 +343,24 @@ public class Poi {
 			return false;
 		if (!Arrays.equals(fotografia, other.fotografia))
 			return false;
+		if (!Arrays.equals(fotografia2, other.fotografia2))
+			return false;
+		if (!Arrays.equals(fotografia3, other.fotografia3))
+			return false;
 		if (imagen == null) {
 			if (other.imagen != null)
 				return false;
 		} else if (!imagen.equals(other.imagen))
+			return false;
+		if (imagen2 == null) {
+			if (other.imagen2 != null)
+				return false;
+		} else if (!imagen2.equals(other.imagen2))
+			return false;
+		if (imagen3 == null) {
+			if (other.imagen3 != null)
+				return false;
+		} else if (!imagen3.equals(other.imagen3))
 			return false;
 		if (localidad == null) {
 			if (other.localidad != null)
@@ -323,5 +390,6 @@ public class Poi {
 			return false;
 		return true;
 	}
+
 
 }

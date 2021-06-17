@@ -87,10 +87,31 @@
   					<input type="file" name="file" class="custom-file-input" id="file"
   					accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
 						onchange="loadFile(event)" required>
-						<div class="invalid-feedback">Se debe Agregar una
-							foto.</div>	 <img id="output"
-						style="padding-top: 2px; width: 146px;"/>
-					<label class="custom-file-label" for="file">Elegir Foto</label>
+						<div class="invalid-feedback">Se debe Agregar una foto.</div>	
+						 <img id="output" style="padding-top: 2px; width: 146px;"/>
+					<label class="custom-file-label" for="file" th:field="*{fotografia}" >Elegir Foto</label>
+				</div>
+				</div>
+				<br>
+				<div class="form-row justify-content-md-center">	
+				<div class="custom-file col-md-10">
+  					<input type="file" name="file2" class="custom-file-input" id="file2"
+  					accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+						onchange="loadFile2(event)" required>
+						<div class="invalid-feedback">Se debe Agregar una foto.</div>
+						 <img id="output" style="padding-top: 2px; width: 146px;"/>
+					<label class="custom-file-label" for="file2" th:field="*{fotografia2}" >Elegir Foto</label>
+				</div>
+				</div>
+				<br>
+				<div class="form-row justify-content-md-center">	
+				<div class="custom-file col-md-10">
+  					<input type="file" name="file3" 
+  					class="custom-file-input" id="file3"accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
+						onchange="loadFile3(event)" required>
+						<div class="invalid-feedback">Se debe Agregar una foto.</div>
+						 <img id="output" style="padding-top: 2px; width: 146px;"/>
+					<label class="custom-file-label" for="file3" th:field="*{fotografia3}">Elegir Foto</label>
 				</div>
 				</div>
 				<br>

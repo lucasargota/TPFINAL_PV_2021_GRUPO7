@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ar.edu.unju.edm.model.Turista;
+import ar.edu.unju.edm.service.IPoiService;
 import ar.edu.unju.edm.service.ITuristaService;
 
 @Controller
 public class TuristaController{
+	@Autowired
+	@Qualifier("implementacionmysql")	
+	IPoiService poiService; 
 	
 @Autowired
 @Qualifier("implementacion2mysql")	
@@ -71,12 +75,18 @@ ITuristaService turistaService;
 	public String eliminarTurista(Model model, @PathVariable(name="id") Integer id) {
 		
 		try {
-			turistaService.eliminarTurista(id);			
+			turistaService.eliminarTurista(id);	
+			
+				
+			
+			return "redirect:/home";
+			
 		}
 		catch(Exception e){
 			model.addAttribute("listErrorMessage",e.getMessage());
+			return "redirect:/perfil";
 		}			
-		return "redirect:/home";
+		
 	}
 	@GetMapping("/cancelar/turista")
 	public String cancelar() {
