@@ -64,6 +64,16 @@ public class PoiServiceMYSQL implements IPoiService{
 		hacia.setLocalidad(desde.getLocalidad());
 		//hacia.setLocalizacionLatitud(desde.getLocalizacionLatitud());
 		//hacia.setLocalizacionLongitud(desde.getLocalizacionLongitud());
+		hacia.setFotografia(desde.getFotografia());
+		hacia.setImagen(desde.getImagen());
+		
+		hacia.setFotografia2(desde.getFotografia2());
+		hacia.setImagen2(desde.getImagen2());
+		
+		hacia.setFotografia3(desde.getFotografia3());
+		hacia.setImagen3(desde.getImagen3());
+		
+		
 		
 		hacia.setNombre(desde.getNombre());
 		hacia.setNumeroCasa(desde.getNumeroCasa());
