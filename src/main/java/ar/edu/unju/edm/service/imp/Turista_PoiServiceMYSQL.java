@@ -42,7 +42,7 @@ public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
 	@Override
 	public void modificarTurista_Poi(Turista_Poi unTurista_PoiModificado) throws Exception {
 		// TODO Auto-generated method stub
-		Turista_Poi turista_PoiAModificar = turista_PoiDAO.findByIdTurista_Poi(unTurista_PoiModificado.getIdTurista_Poi()).orElseThrow(()->new Exception("El Turista_Poi no fue encontrado"));
+		Turista_Poi turista_PoiAModificar = turista_PoiDAO.findByIdTP(unTurista_PoiModificado.getIdTP()).orElseThrow(()->new Exception("El Turista_Poi no fue encontrado"));
 		 
 		cambiarPoi(unTurista_PoiModificado, turista_PoiAModificar);
 		turista_PoiDAO.save(turista_PoiAModificar);
@@ -65,16 +65,17 @@ public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
 	}
 
 	@Override
-	public void eliminarTurista_Poi(Integer idTurista_Poi) throws Exception {
+	public void eliminarTurista_Poi(Integer idTP) throws Exception {
 		// TODO Auto-generated method stub
-		Turista_Poi turista_PoiEliminar = turista_PoiDAO.findByIdTurista_Poi(idTurista_Poi).orElseThrow(()->new Exception("El turista_Poi no fue encontrado"));
+		Turista_Poi turista_PoiEliminar = turista_PoiDAO.findByIdTP(idTP).orElseThrow(()->new Exception("El turista_Poi no fue encontrado"));
 		turista_PoiDAO.delete(turista_PoiEliminar);
 	}
 
 	@Override
-	public Turista_Poi encontrarUnTurista_Poi(Integer idTurista_Poi) throws Exception {
+	public Turista_Poi encontrarUnTurista_Poi(Integer idTP) throws Exception {
 		// TODO Auto-generated method stub
-		return turista_PoiDAO.findByIdTurista_Poi(idTurista_Poi).orElseThrow(()->new Exception("El Turista_Poi NO existe"));
+		
+		return turista_PoiDAO.findByIdTP(idTP).orElseThrow( ()->new Exception("El Turista_Poi NO existe"));
 	}
 
 }

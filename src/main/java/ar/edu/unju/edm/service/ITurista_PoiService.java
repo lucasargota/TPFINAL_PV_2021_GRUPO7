@@ -13,7 +13,7 @@ public interface ITurista_PoiService {
 	public Turista_Poi crearTurista_Poi();
 	public List<Turista_Poi> obtenerTodosTuristas_Pois();
 	public void modificarTurista_Poi(Turista_Poi unTurista_PoiModificado) throws Exception;
-	void eliminarTurista_Poi(Integer idTurista_Poi) throws Exception;
-	Turista_Poi encontrarUnTurista_Poi(Integer idTurista_Poi) throws Exception;
+	void eliminarTurista_Poi(Integer idTP) throws Exception;
+	Turista_Poi encontrarUnTurista_Poi(Integer idTP) throws Exception;
 
 }
