@@ -117,6 +117,6 @@ ITuristaService turistaService;
 				model.addAttribute("editMode", "true");
 			}		
 			model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
-		return "redirect:/perfil";
+		return "redirect:/home";
 	}
 }

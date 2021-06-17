@@ -106,6 +106,11 @@ public class PoiController {
 			return "redirect:/poi/agregar";
 		}
 		
+		@GetMapping("/detallespoi")
+		public String detalles(Model model) {
+			return "detallespoi";
+		}
+		
 		//Post
 		@PostMapping("/poi/modificar")
 		public String modificarPoi(@RequestParam("file") MultipartFile file,@RequestParam("file2") MultipartFile file2,@RequestParam("file3") MultipartFile file3, @ModelAttribute("unPoi") Poi poiModificado, Model model) {
