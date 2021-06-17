@@ -79,7 +79,7 @@ ITuristaService turistaService;
 			
 				
 			
-			return "redirect:/home";
+			return "redirect:/logout";
 			
 		}
 		catch(Exception e){
