@@ -130,6 +130,34 @@
 	</div>
 	</form>
 	
+		<table class="table table-success table-striped">
+                <thead class="thead-dark">
+
+                    <tr>
+                        <th class="">Comentarios</th>
+                        <th>valoracion</th>
+                        <th>Usuario</th>
+                        <th>Editar/Eliminar</th>
+
+
+
+                    </tr>
+                </thead>
+                <tr th:if="${detalles1.empty}">
+                    <td colspan="2">No hay comentarios</td>
+                </tr>
+
+                <tr th:each=" c : ${detalles1}">
+                    <td class="columna" th:text="${c.comentario}"></td>
+                    <td th:text="${c.valoracion}+' '+ estrellas"></td>
+                    <td th:text="${turista.nombre}"></td>
+					
+					<td> <a href="#" th:href="@{'/detallespoi/editar/'+${c.idTP}}"><i class="fa fa-edit"></i></a> 
+					<!--<a th:onclick="'javascript:confirmarEliminar(\''+${p.codProducto}+'\');'">
+					<i	class="fa fa-trash-alt"></i></a>  </td> -->
+                </tr>
+            </table>
+		
 	
 	
 	<!-- Footer -->

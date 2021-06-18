@@ -36,13 +36,24 @@ public class Turista_Poi_Controller {
 	public String cargarValoracion(Model model,@PathVariable(name="codigoPoi") Integer codigoPoi) {
 		Turista_Poi cargarDetalles = tpService.crearTurista_Poi();
 		System.out.println("hola");
+
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+	    
 		try {
 			Poi poiEncontrado = poiService.encontrarUnPoi(codigoPoi);
             model.addAttribute("unPoi", poiEncontrado);
 			cargarDetalles.setOtroPoi(poiService.encontrarUnPoi(codigoPoi));
 			System.out.println(cargarDetalles.getOtroPoi().getCodigoPoi());
+			
 			model.addAttribute("unDetalle", cargarDetalles);
 		    model.addAttribute("detalles", tpService.obtenerTodosTuristas_Pois());
+		    Turista turista = turistaService.encontrarPorEmail(userDetail.getUsername());
+			System.out.println("se encontro turista");
+		    model.addAttribute("detalles1", tpService.obtenerMisComentarios(turista));
+		    model.addAttribute(turista);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,19 +66,33 @@ public class Turista_Poi_Controller {
 	
 	@GetMapping("/detallespoi/editar/{idTP}")
 	public String editarValoracion(Model model, @PathVariable(name="idTP") Integer idTP) throws Exception {
+		Authentication auth = SecurityContextHolder
+	            .getContext()
+	            .getAuthentication();
+	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
+	    	    
 		try {
+			// buscar el codigo poi que apretamos en ver mas 
+			System.out.println("el hombre rata");
+			// Poi poiEncontrado = poiService.encontrarUnPoi(codigoPoi);
+			
+         //    model.addAttribute("unPoi", poiEncontrado);
+			
+						
 			Turista_Poi detalleEncontrado = tpService.encontrarUnTurista_Poi(idTP);
 			model.addAttribute("unDetalle", detalleEncontrado);
 		    model.addAttribute("editMode", "true");
 			
 		}
 		catch (Exception e) {
+			System.out.println("el hombre maraña");
 			model.addAttribute("formUsuarioErrorMessage",e.getMessage());
 			model.addAttribute("unDetalle", tpService.crearTurista_Poi());
 			model.addAttribute("editMode", "false");
 		}
-		
-		model.addAttribute("detalles" , tpService.obtenerTodosTuristas_Pois());
+		Turista turista = turistaService.encontrarPorEmail(userDetail.getUsername());
+		System.out.println("se encontro turista");
+		model.addAttribute("detalles1" , tpService.obtenerMisComentarios(turista));
 		return("detallespoi");
 		
 	}
