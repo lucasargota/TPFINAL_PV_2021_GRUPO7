@@ -114,7 +114,7 @@ public class Turista_Poi_Controller {
 				}
 				
 				turistaService.guardarTurista(turistaEncontrado);
-				nuevoDetalle.setOtroTurista(turistaEncontrado);
+				nuevoDetalle.setTuristaAutor(turistaEncontrado);
 				tpService.guardarTurista_Poi(nuevoDetalle);
 			}
 		} catch (Exception e) {

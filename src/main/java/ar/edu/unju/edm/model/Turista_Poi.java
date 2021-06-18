@@ -31,7 +31,7 @@ public class Turista_Poi {
 	
 	@ManyToOne
 	@JoinColumn(name = "id")
-	private Turista otroTurista;
+	private Turista turistaAutor;
 	
 	@ManyToOne
 	@JoinColumn(name = "codigoPoi")
@@ -59,13 +59,7 @@ public class Turista_Poi {
 		this.comentario = comentario;
 	}
 
-	public Turista getOtroTurista() {
-		return otroTurista;
-	}
-
-	public void setOtroTurista(Turista otroTurista) {
-		this.otroTurista = otroTurista;
-	}
+	
 
 	public Poi getOtroPoi() {
 		return otroPoi;
@@ -75,6 +69,32 @@ public class Turista_Poi {
 		this.otroPoi = otroPoi;
 	}
 
+
+
+	public Integer getIdTP() {
+		return idTP;
+	}
+
+
+
+	public void setIdTP(Integer idTP) {
+		this.idTP = idTP;
+	}
+
+
+
+	public Turista getTuristaAutor() {
+		return turistaAutor;
+	}
+
+
+
+	public void setTuristaAutor(Turista turistaAutor) {
+		this.turistaAutor = turistaAutor;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,10 +102,12 @@ public class Turista_Poi {
 		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
 		result = prime * result + ((idTP == null) ? 0 : idTP.hashCode());
 		result = prime * result + ((otroPoi == null) ? 0 : otroPoi.hashCode());
-		result = prime * result + ((otroTurista == null) ? 0 : otroTurista.hashCode());
+		result = prime * result + ((turistaAutor == null) ? 0 : turistaAutor.hashCode());
 		result = prime * result + valoracion;
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -111,33 +133,32 @@ public class Turista_Poi {
 				return false;
 		} else if (!otroPoi.equals(other.otroPoi))
 			return false;
-		if (otroTurista == null) {
-			if (other.otroTurista != null)
+		if (turistaAutor == null) {
+			if (other.turistaAutor != null)
 				return false;
-		} else if (!otroTurista.equals(other.otroTurista))
+		} else if (!turistaAutor.equals(other.turistaAutor))
 			return false;
 		if (valoracion != other.valoracion)
 			return false;
 		return true;
 	}
 
-	public Turista_Poi(Integer idTP, int valoracion, String comentario, Turista otroTurista, Poi otroPoi) {
+
+
+	public Turista_Poi(Integer idTP, int valoracion, String comentario, Turista turistaAutor, Poi otroPoi) {
 		super();
 		this.idTP = idTP;
 		this.valoracion = valoracion;
 		this.comentario = comentario;
-		this.otroTurista = otroTurista;
+		this.turistaAutor = turistaAutor;
 		this.otroPoi = otroPoi;
 	}
 
-	public Integer getIdTP() {
-		return idTP;
-	}
+	
 
-	public void setIdTP(Integer idTP) {
-		this.idTP = idTP;
-	}
 
+
+	
 
 	
 	
