@@ -1,6 +1,8 @@
 package ar.edu.unju.edm.model;
 
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,7 +39,7 @@ public class Turista {
 	@Column
 	private int puntos;
 	
-	@OneToMany(mappedBy = "turistaAutor", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "turistaAutor", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Poi> pois;
 	
 	public Turista() {

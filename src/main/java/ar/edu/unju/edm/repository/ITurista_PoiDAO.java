@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.model.Turista_Poi;
 @Repository
 public interface ITurista_PoiDAO  extends CrudRepository<Turista_Poi, Integer>{
@@ -16,6 +17,7 @@ public interface ITurista_PoiDAO  extends CrudRepository<Turista_Poi, Integer>{
 	
 	public List<Turista_Poi> obtenerTuristas_Pois();
 	public Optional<Turista_Poi> findByIdTP(Integer idTP);
+	public List<Turista_Poi> findAllByTuristaAutor(Turista turistaAutor);
 
 
 }

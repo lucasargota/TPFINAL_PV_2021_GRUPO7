@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.model.Turista_Poi;
 import ar.edu.unju.edm.repository.ITurista_PoiDAO;
 import ar.edu.unju.edm.service.ITurista_PoiService;
@@ -76,6 +77,12 @@ public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
 		// TODO Auto-generated method stub
 		
 		return turista_PoiDAO.findByIdTP(idTP).orElseThrow( ()->new Exception("El Turista_Poi NO existe"));
+	}
+
+	@Override
+	public List<Turista_Poi> obtenerMisComentarios(Turista turistaAutor) {
+		// TODO Auto-generated method stub
+		return (List<Turista_Poi>) turista_PoiDAO.findAllByTuristaAutor(turistaAutor);
 	}
 
 }

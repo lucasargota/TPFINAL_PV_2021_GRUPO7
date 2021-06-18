@@ -21,7 +21,6 @@ import ar.edu.unju.edm.model.Poi;
 import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.service.IPoiService;
 import ar.edu.unju.edm.service.ITuristaService;
-import ar.edu.unju.edm.service.ITurista_PoiService;
 
 
 
@@ -33,9 +32,6 @@ public class PoiController {
 	@Autowired
 	@Qualifier("implementacion2mysql")	
 	ITuristaService turistaService;
-	@Autowired
-	@Qualifier("implementacion3mysql")
-	ITurista_PoiService tpService;
 		//Get
 		@GetMapping("/poi/agregar")
 		public String cargarPoi(Model model) {
@@ -110,7 +106,6 @@ public class PoiController {
 			return "redirect:/poi/agregar";
 		}
 		
-
 		//Post
 		@PostMapping("/poi/modificar")
 		public String modificarPoi(@RequestParam("file") MultipartFile file,@RequestParam("file2") MultipartFile file2,@RequestParam("file3") MultipartFile file3, @ModelAttribute("unPoi") Poi poiModificado, Model model) {
@@ -124,11 +119,11 @@ public class PoiController {
 					
 					byte[] content2 = file2.getBytes();
 					String base65 = Base64.getEncoder().encodeToString(content2);
-					poiModificado.setImagen(base65);
+					poiModificado.setImagen2(base65);
 					
 					byte[] content3 = file3.getBytes();
 					String base66 = Base64.getEncoder().encodeToString(content3);
-					poiModificado.setImagen(base66);
+					poiModificado.setImagen3(base66);
 								
 					
 					poiService.modificarPoi(poiModificado);
