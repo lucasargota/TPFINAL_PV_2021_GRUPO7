@@ -170,7 +170,7 @@ public class PoiController {
 		
 		Turista turistaEncontrado = turistaService.encontrarPorEmail(userDetail.getUsername());
 			
-			
+			turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() + 10);
 			nuevoPoi.setTuristaAutor(turistaEncontrado);
 	
 		

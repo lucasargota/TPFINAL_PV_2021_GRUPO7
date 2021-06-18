@@ -152,7 +152,8 @@
                     <td th:text="${c.valoracion}+' '+ estrellas"></td>
                     <td th:text="${turista.nombre}"></td>
 					
-					<td> <a href="#" th:href="@{'/detallespoi/editar/'+${c.idTP}}"><i class="fa fa-edit"></i></a> 
+					<td> 
+					<a href="#" th:href="@{'/detallespoi/editar/'+${c.idTP}}"><i class="fa fa-edit"></i></a> 
 					<!--<a th:onclick="'javascript:confirmarEliminar(\''+${p.codProducto}+'\');'">
 					<i	class="fa fa-trash-alt"></i></a>  </td> -->
                 </tr>
