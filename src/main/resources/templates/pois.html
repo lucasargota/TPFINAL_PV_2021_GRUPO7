@@ -32,7 +32,7 @@
 				<div class="card-body">
 					<h5 class="card-title text-center" th:text="${p.nombre}">Nombre</h5>
 					<p class="card-text text-center" th:text="${p.descripcion}">Descripcion</p>
-					<a href="#" class="center" style="margin-left: 40px;" >ver más</a>
+					<a th:href="@{'/detallespoi/'+${p.codigoPoi}}" class="center" style="margin-left: 40px;" >ver más</a>
 				</div>
 			</div>
 		</div>
