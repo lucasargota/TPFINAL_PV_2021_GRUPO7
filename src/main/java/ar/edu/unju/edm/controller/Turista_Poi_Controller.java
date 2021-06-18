@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,7 +18,7 @@ import ar.edu.unju.edm.model.Turista_Poi;
 import ar.edu.unju.edm.service.IPoiService;
 import ar.edu.unju.edm.service.ITuristaService;
 import ar.edu.unju.edm.service.ITurista_PoiService;
-
+@Controller
 public class Turista_Poi_Controller {
 
 	@Autowired
@@ -34,7 +35,10 @@ public class Turista_Poi_Controller {
 	@GetMapping("/detallespoi/{codigoPoi}")
 	public String cargarValoracion(Model model,@PathVariable(name="codigoPoi") Integer codigoPoi) {
 		Turista_Poi cargarDetalles = tpService.crearTurista_Poi();
+		System.out.println("hola");
 		try {
+			Poi poiEncontrado = poiService.encontrarUnPoi(codigoPoi);
+            model.addAttribute("unPoi", poiEncontrado);
 			cargarDetalles.setOtroPoi(poiService.encontrarUnPoi(codigoPoi));
 			System.out.println(cargarDetalles.getOtroPoi().getCodigoPoi());
 			model.addAttribute("unDetalle", cargarDetalles);
@@ -122,7 +126,7 @@ public class Turista_Poi_Controller {
 			
 			e.printStackTrace();
 		}
-		return "redirect:/pois";
+		return "redirect:/detallespoi/{codigoPoi}";
 	}
 	
 	
