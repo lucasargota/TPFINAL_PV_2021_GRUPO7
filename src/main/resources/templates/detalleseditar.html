@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Agregar Punto de Interes</title>
+	<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
+</head>
+<body>
+<form th:objet="${unDetalle}" th:action="${editMode}?@{/valoracion/modificar}" method="post">
+<div class="form-group">
+						<label>Agrega Tu Comentario</label>
+						<textarea id="comment" th:field="*{unDetalle.comentario}" class="form-control"></textarea></label>
+					</div>
+						</div>
+						
+	
+					<input type="submit" class="btn btn-info col-9 btn-space"
+                            th:value="${editMode}?'Modificar':'Comentar y Valorar'">
+         
+                            <br>  
+			</div>
+</body>
+</html>
