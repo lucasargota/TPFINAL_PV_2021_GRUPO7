@@ -31,6 +31,7 @@ public class Turista_Poi_Controller {
 	@Qualifier("implementacion3mysql")
 	ITurista_PoiService tpService;
 	
+	
 	//GET
 	@GetMapping("/detallespoi/{codigoPoi}")
 	public String cargarValoracion(Model model,@PathVariable(name="codigoPoi") Integer codigoPoi) {
@@ -93,7 +94,7 @@ public class Turista_Poi_Controller {
 		Turista turista = turistaService.encontrarPorEmail(userDetail.getUsername());
 		System.out.println("se encontro turista");
 		model.addAttribute("detalles1" , tpService.obtenerMisComentarios(turista));
-		return("detallespoi");
+		return("detalleseditar");
 		
 	}
 	
@@ -157,7 +158,7 @@ public class Turista_Poi_Controller {
 	
 	
 	@PostMapping("/valoracion/modificar")
-	public String modificarDetalle(@ModelAttribute("unDetalle") Turista_Poi detalleModificado, Model model) {
+	public String modificarDetalle(@ModelAttribute("unDetalle") Turista_Poi detalleModificado, Model model) throws Exception {
 		try {
 			tpService.modificarTurista_Poi(detalleModificado);
 			model.addAttribute("unDetalle", new Turista_Poi());
@@ -170,7 +171,7 @@ public class Turista_Poi_Controller {
 			model.addAttribute("editMode", "true");
 		}
 		model.addAttribute("detalles", tpService.obtenerTodosTuristas_Pois());
-		return("detallespoi");
+		return "pois";
 	}
 	
 }
