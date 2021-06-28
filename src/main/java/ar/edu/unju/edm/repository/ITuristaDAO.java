@@ -17,12 +17,8 @@ public interface ITuristaDAO extends CrudRepository<Turista, Integer>{
 	
 	public List<Turista> obtenerTurista();
 	public Optional<Turista> findById(Integer id);
-
-	
-	
-	
-	
 	public Optional<Turista> findByEmail(String email);
 	
-
+	@Query(value ="SELECT * FROM tpfinal_edm.turistas ORDER BY puntos DESC",nativeQuery=true)
+	public List<Turista> turistaMasPuntos();
 }

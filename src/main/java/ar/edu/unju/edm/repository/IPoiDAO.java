@@ -19,6 +19,5 @@ public List<Poi> obtenerPois();
 	public List<Poi> findAllByTuristaAutor(Turista turistaAutor);
 
 	@Query(value ="SELECT * FROM tpfinal_edm.pois ORDER BY val_final DESC",nativeQuery=true)
-
     public List<Poi> poiMV();
 }

@@ -122,9 +122,8 @@
 					<label for="star1" title="1 Estrella">1 star</label>
 				</div>
 					
-					<input type="submit" class="btn btn-info col-9 btn-space"
+				<input type="submit" class="btn btn-info col-9 btn-space"
                             th:value="${editMode}?'Modificar':'Comentar y Valorar'">
-                            <br>  
 			</div>
 			
                             <br> 
@@ -141,9 +140,9 @@
 
                     <tr>
                         <th class="">Comentarios</th>
-                        <th>valoracion</th>
+                        <th>Valoracion</th>
                         <th>Usuario</th>
-                        <th>Editar/Eliminar</th>
+                        <th>Eliminar</th>
 
 
 
@@ -159,7 +158,7 @@
                     <td th:text="${turista.nombre}"></td>
 					
 					<td> 
-					<a href="#" th:href="@{'/detallespoi/editar/'+${c.idTP}}"><i class="fa fa-edit"></i></a> 
+		
 					<!--<a th:onclick="'javascript:confirmarEliminar(\''+${p.codProducto}+'\');'">
 					<i	class="fa fa-trash-alt"></i></a>  </td> -->
                 </tr>
