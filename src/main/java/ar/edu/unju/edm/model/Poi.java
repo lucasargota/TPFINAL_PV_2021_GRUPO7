@@ -1,14 +1,18 @@
 package ar.edu.unju.edm.model;
 
 import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -57,6 +61,42 @@ public class Poi {
 	@Column(name = "imagen3", columnDefinition = "LONGBLOB")
 	private String imagen3;
 	
+	
+	@Column 
+	private double valFinal = 0;
+	
+		@ManyToOne
+	@JoinColumn(name = "idTurista")
+	private Turista turistaAutor;
+		
+		@OneToMany(mappedBy= "otroPoi", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+		private List<Turista_Poi> turistaVal;
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	public List<Turista_Poi> getTuristaVal() {
+			return turistaVal;
+		}
+
+		public void setTuristaVal(List<Turista_Poi> turistaVal) {
+			this.turistaVal = turistaVal;
+		}
+
+	public double getValFinal() {
+		return valFinal;
+	}
+
+	public void setValFinal(double valFinal) {
+		this.valFinal = valFinal;
+	}
+
 	public String getImagen() {
 		return imagen;
 	}
@@ -65,9 +105,6 @@ public class Poi {
 		this.imagen = imagen;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "idTurista")
-	private Turista turistaAutor;
 
 	public Poi() {
 		// TODO Auto-generated constructor stub

@@ -88,6 +88,11 @@ public class PoiServiceMYSQL implements IPoiService{
 		Poi poiEliminar = poiDAO.findByCodigoPoi(codigoPoi).orElseThrow(()->new Exception("El Poi no fue encontrado"));
 		poiDAO.delete(poiEliminar);
 	}
+	@Override
+	public List<Poi> ordenarMV() {
+		// TODO Auto-generated method stub
+		return (List<Poi>) poiDAO.poiMV();
+	}
 
 
 }

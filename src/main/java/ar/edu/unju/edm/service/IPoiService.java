@@ -15,5 +15,6 @@ public interface IPoiService {
 	void eliminarPoi(Integer codigoPoi) throws Exception;
 	Poi encontrarUnPoi(Integer codigoPoi) throws Exception;
 	public List<Poi> obtenerMisPois(Turista turistaAutor);
+	public List<Poi> ordenarMV();
 	
 }

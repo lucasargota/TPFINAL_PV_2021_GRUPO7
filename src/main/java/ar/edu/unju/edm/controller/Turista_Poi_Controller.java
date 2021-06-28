@@ -142,6 +142,8 @@ public class Turista_Poi_Controller {
 				if(nuevoDetalle.getValoracion() != 0) {
 					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() + 8);
 				}
+								
+				poiEncontrado.setValFinal(poiEncontrado.getValFinal()+nuevoDetalle.getValoracion());
 				
 				turistaService.guardarTurista(turistaEncontrado);
 				nuevoDetalle.setTuristaAutor(turistaEncontrado);
@@ -171,7 +173,7 @@ public class Turista_Poi_Controller {
 			model.addAttribute("editMode", "true");
 		}
 		model.addAttribute("detalles", tpService.obtenerTodosTuristas_Pois());
-		return "pois";
+		return "redirect:/pois/mostrar";
 	}
 	
 }
