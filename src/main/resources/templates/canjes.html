@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Pois</title>
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
+</head>
+<body>
+
+	<!-- Header -->
+	<header>
+		<div th:insert="layouts/header :: header"></div>
+	</header>
+
+	<div class="container center">
+
+		<div>
+			<h3 id='Titulos'>
+				<span class=colorTitulos>Canjes</span>
+			</h3>
+			<br> <br>
+		</div>
+
+		<div class="card-deck">
+			<div class="card">
+				<img src="https://cdn.discordapp.com/attachments/701871673971834984/858881629472423956/Z.png" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Remera</h5>
+					<p class="card-text">Puntos: 250</p>
+					<input type="submit" class="btn btn-info btn-block">
+				</div>
+			</div>
+			
+			<div class="card">
+				<img src="https://media-cdn.tripadvisor.com/media/photo-s/05/19/a0/a0/termas-de-reyes.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Una noche en Hotel Terma de Reyes</h5>
+					<p class="card-text">Puntos: 650</p>
+					<input type="submit" class="btn btn-info btn-block">
+				</div>
+			</div>
+			
+			<div class="card">
+				<img src="https://media-cdn.tripadvisor.com/media/photo-s/02/37/fb/4a/filename-11sept-arg340.jpg" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">Un almuerzo en Purmamarca</h5>
+					<p class="card-text">Puntos: 350</p>
+					<input type="submit" class="btn btn-info btn-block">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div th:insert="layouts/footer :: footer"></div>
+	</footer>
+
+	<!-- Scripts -->
+	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
+		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
+		type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
+		type="text/javascript"
+		src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
