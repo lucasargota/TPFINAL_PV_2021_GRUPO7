@@ -40,6 +40,15 @@ ITuristaService turistaService;
 		return("perfil");
 	} 
 	
+	@GetMapping("/turistaspuntos")
+	public String puntosTurista(Model model){ 
+	
+		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
+	
+	return("turistaspuntos");
+	} 
+	
+	
 	//Para la pagina usuario
 	@GetMapping("/turista/buscar/{id}")
 	public String buscarTurista(Model model, @PathVariable(name="id") Integer id) throws Exception {		

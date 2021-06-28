@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:rel="stylesheet" type="text/css"	th:href="@{/css/MiEstilo.css}" />
+<link th:rel="stylesheet" type="text/css"	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet"	th:href="@{/webjars/font-awesome/5.11.2/css/all.css}" />
+<link th:rel="icon" type="" image/png"" th:href="@{/images/image5.png}">
+<meta charset="UTF-8">
+<title>Cliente</title>
+</head>
+<body style="background-color: rgb(253, 190, 104);">
+
+<!-- Header -->
+	<header>
+		<div th:insert="layouts/header :: header"></div>
+	</header>
+	
+	<br>
+
+<div class="container">
+
+<h1 id='Titulos'><span class="text-dark">Lista de Turistas</span></h1>
+	<table class="table table-success table-striped">
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+			<th>Pais</th>
+			<th>Puntos</th>
+		</tr>
+		
+		<tr th:each="t : ${turistas}">
+			<td th:text="${t.id}"></td>
+			<td th:text="${t.nombre}"></td>
+			<td th:text="${t.apellido}"></td>
+			<td th:text="${t.email}"></td>
+			<td th:text="${t.pais}"></td>
+			<td th:text="${t.puntos}"></td>
+	
+		</tr>
+	</table>
+				
+</div>
+
+</script>
+		<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+		<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+		<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
