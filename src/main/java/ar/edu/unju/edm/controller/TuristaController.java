@@ -43,11 +43,15 @@ ITuristaService turistaService;
 	@GetMapping("/turistaspuntos")
 	public String puntosTurista(Model model){ 
 	
-		model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
+		model.addAttribute("turistas", turistaService.turistaMasPuntos());
 	
 	return("turistaspuntos");
 	} 
+	@GetMapping("/canjes")
+	public String canjesPuntos(Model model){ 
 	
+	return("canjes");
+	} 
 	
 	//Para la pagina usuario
 	@GetMapping("/turista/buscar/{id}")

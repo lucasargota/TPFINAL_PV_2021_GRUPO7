@@ -65,40 +65,6 @@ public class Turista_Poi_Controller {
 	}
 	
 	
-	@GetMapping("/detallespoi/editar/{idTP}")
-	public String editarValoracion(Model model, @PathVariable(name="idTP") Integer idTP) throws Exception {
-		Authentication auth = SecurityContextHolder
-	            .getContext()
-	            .getAuthentication();
-	    UserDetails userDetail = (UserDetails) auth.getPrincipal();
-	    	    
-		try {
-			// buscar el codigo poi que apretamos en ver mas 
-			System.out.println("el hombre rata");
-			// Poi poiEncontrado = poiService.encontrarUnPoi(codigoPoi);
-			
-         //    model.addAttribute("unPoi", poiEncontrado);
-			
-						
-			Turista_Poi detalleEncontrado = tpService.encontrarUnTurista_Poi(idTP);
-			model.addAttribute("unDetalle", detalleEncontrado);
-		    model.addAttribute("editMode", "true");
-			
-		}
-		catch (Exception e) {
-			System.out.println("el hombre maraña");
-			model.addAttribute("formUsuarioErrorMessage",e.getMessage());
-			model.addAttribute("unDetalle", tpService.crearTurista_Poi());
-			model.addAttribute("editMode", "false");
-		}
-		Turista turista = turistaService.encontrarPorEmail(userDetail.getUsername());
-		System.out.println("se encontro turista");
-		model.addAttribute("detalles1" , tpService.obtenerMisComentarios(turista));
-		return("detalleseditar");
-		
-	}
-	
-	
 	@GetMapping("/detallespoi/eliminarDetalle/{idTP}")
 	public String eliminarValoracion(Model model, @PathVariable(name="idTp") Integer idTP) {		
 		try {	
@@ -157,23 +123,5 @@ public class Turista_Poi_Controller {
 		return "redirect:/detallespoi/{codigoPoi}";
 	}
 	
-	
-	
-	@PostMapping("/valoracion/modificar")
-	public String modificarDetalle(@ModelAttribute("unDetalle") Turista_Poi detalleModificado, Model model) throws Exception {
-		try {
-			tpService.modificarTurista_Poi(detalleModificado);
-			model.addAttribute("unDetalle", new Turista_Poi());
-			model.addAttribute("editMode", "false");
-			
-		} catch (Exception e) {
-			model.addAttribute("formUsuarioErrorMessage",e.getMessage());
-			model.addAttribute("unDetalle", detalleModificado);
-			model.addAttribute("detalles", tpService.obtenerTodosTuristas_Pois());
-			model.addAttribute("editMode", "true");
-		}
-		model.addAttribute("detalles", tpService.obtenerTodosTuristas_Pois());
-		return "redirect:/pois/mostrar";
-	}
 	
 }

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.repository.ITuristaDAO;
 import ar.edu.unju.edm.service.ITuristaService;
@@ -88,6 +87,12 @@ public class TuristaServiceMYSQL implements ITuristaService{
 		// TODO Auto-generated method stub
 		
 		return turistaDAO.findByEmail(email).orElseThrow(()->new Exception("El turista no fue encontrado"));
+	}
+
+	@Override
+	public List<Turista> turistaMasPuntos() {
+		// TODO Auto-generated method stub
+		return (List<Turista>) turistaDAO.turistaMasPuntos();
 	}
 
 }
