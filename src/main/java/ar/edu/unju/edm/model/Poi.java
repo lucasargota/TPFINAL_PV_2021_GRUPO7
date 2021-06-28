@@ -1,8 +1,6 @@
 package ar.edu.unju.edm.model;
 
-import java.util.Arrays;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -318,115 +316,5 @@ public class Poi {
 	public void setTuristaAutor(Turista turistaAutor) {
 		this.turistaAutor = turistaAutor;
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((barrio == null) ? 0 : barrio.hashCode());
-		result = prime * result + ((calle == null) ? 0 : calle.hashCode());
-		result = prime * result + ((codigoPoi == null) ? 0 : codigoPoi.hashCode());
-		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
-		result = prime * result + ((etiqueta == null) ? 0 : etiqueta.hashCode());
-		result = prime * result + Arrays.hashCode(fotografia);
-		result = prime * result + Arrays.hashCode(fotografia2);
-		result = prime * result + Arrays.hashCode(fotografia3);
-		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
-		result = prime * result + ((imagen2 == null) ? 0 : imagen2.hashCode());
-		result = prime * result + ((imagen3 == null) ? 0 : imagen3.hashCode());
-		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
-		result = prime * result + localizacionLatitud;
-		result = prime * result + localizacionLongitud;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + numeroCasa;
-		result = prime * result + ((sitioWeb == null) ? 0 : sitioWeb.hashCode());
-		result = prime * result + ((turistaAutor == null) ? 0 : turistaAutor.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Poi other = (Poi) obj;
-		if (barrio == null) {
-			if (other.barrio != null)
-				return false;
-		} else if (!barrio.equals(other.barrio))
-			return false;
-		if (calle == null) {
-			if (other.calle != null)
-				return false;
-		} else if (!calle.equals(other.calle))
-			return false;
-		if (codigoPoi == null) {
-			if (other.codigoPoi != null)
-				return false;
-		} else if (!codigoPoi.equals(other.codigoPoi))
-			return false;
-		if (descripcion == null) {
-			if (other.descripcion != null)
-				return false;
-		} else if (!descripcion.equals(other.descripcion))
-			return false;
-		if (etiqueta == null) {
-			if (other.etiqueta != null)
-				return false;
-		} else if (!etiqueta.equals(other.etiqueta))
-			return false;
-		if (!Arrays.equals(fotografia, other.fotografia))
-			return false;
-		if (!Arrays.equals(fotografia2, other.fotografia2))
-			return false;
-		if (!Arrays.equals(fotografia3, other.fotografia3))
-			return false;
-		if (imagen == null) {
-			if (other.imagen != null)
-				return false;
-		} else if (!imagen.equals(other.imagen))
-			return false;
-		if (imagen2 == null) {
-			if (other.imagen2 != null)
-				return false;
-		} else if (!imagen2.equals(other.imagen2))
-			return false;
-		if (imagen3 == null) {
-			if (other.imagen3 != null)
-				return false;
-		} else if (!imagen3.equals(other.imagen3))
-			return false;
-		if (localidad == null) {
-			if (other.localidad != null)
-				return false;
-		} else if (!localidad.equals(other.localidad))
-			return false;
-		if (localizacionLatitud != other.localizacionLatitud)
-			return false;
-		if (localizacionLongitud != other.localizacionLongitud)
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (numeroCasa != other.numeroCasa)
-			return false;
-		if (sitioWeb == null) {
-			if (other.sitioWeb != null)
-				return false;
-		} else if (!sitioWeb.equals(other.sitioWeb))
-			return false;
-		if (turistaAutor == null) {
-			if (other.turistaAutor != null)
-				return false;
-		} else if (!turistaAutor.equals(other.turistaAutor))
-			return false;
-		return true;
-	}
-
 
 }
