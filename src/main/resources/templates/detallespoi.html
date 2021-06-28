@@ -82,6 +82,11 @@
                         <h5 style="text-decoration: underline;">Sitio Web</h5>
                         <h7 th:text="${unPoi.sitioWeb}">Sitio web</h7>
                         </div>
+                         <div>
+                           <h5 style="text-decoration: underline;">Valoracion</h5>
+                        <h5 th:text="${(#numbers.formatDecimal(unPoi.valFinal/unPoi.turistaVal.size(),1,1))}"></h5>
+                        </div> 
+                        
 					</div>
 				
 	</div>
@@ -98,6 +103,7 @@
 			<div class="col-md-12">
 				
 					<div class="form-group">
+					
 						<label>Agrega Tu Comentario</label>
 						<textarea id="comment" th:field="*{unDetalle.comentario}" class="form-control"></textarea></label>
 					</div>

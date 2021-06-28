@@ -42,7 +42,8 @@ public class PoiController {
 		
 		@GetMapping("/poi/mostrar")
 		public String mostrarPoi(Model model) {
-		model.addAttribute("pois", poiService.obtenerTodosPois());
+		model.addAttribute("pois", poiService.ordenarMV());
+		
 			return("pois");
 		} 
 		
