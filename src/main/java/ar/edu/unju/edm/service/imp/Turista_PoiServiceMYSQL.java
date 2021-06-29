@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.edm.model.Poi;
 import ar.edu.unju.edm.model.Turista;
 import ar.edu.unju.edm.model.Turista_Poi;
 import ar.edu.unju.edm.repository.ITurista_PoiDAO;
@@ -83,6 +84,12 @@ public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
 	public List<Turista_Poi> obtenerMisComentarios(Turista turistaAutor) {
 		// TODO Auto-generated method stub
 		return (List<Turista_Poi>) turista_PoiDAO.findAllByTuristaAutor(turistaAutor);
+	}
+
+	@Override
+	public List<Turista_Poi> obtenerComentariosPoi(Poi otroPoi) {
+		// TODO Auto-generated method stub
+		return (List<Turista_Poi>) turista_PoiDAO.obtenerValPoi(otroPoi.getCodigoPoi());
 	}
 
 }

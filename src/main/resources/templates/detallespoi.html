@@ -142,20 +142,21 @@
                         <th class="">Comentarios</th>
                         <th>Valoracion</th>
                         <th>Usuario</th>
-                        <th>Eliminar</th>
+                        <th>Hora</th>
 
 
 
                     </tr>
                 </thead>
-                <tr th:if="${detalles1.empty}">
+                <tr th:if="${detalles.empty}">
                     <td colspan="2">No hay comentarios</td>
                 </tr>
 
-                <tr th:each=" c : ${detalles1}">
+                <tr th:each=" c : ${detalles}">
                     <td class="columna" th:text="${c.comentario}"></td>
                     <td th:text="${c.valoracion}+' '+ estrellas"></td>
                     <td th:text="${turista.nombre}"></td>
+                    <td th:text="${c.horaComentario}"></td>
 					
 					<td> 
 		
