@@ -9,7 +9,7 @@
 <link th:rel="stylesheet"
 	th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
 </head>
-<body class="fondo">
+<body class="f">
 
 	<!-- Header -->
 	<header>
@@ -36,7 +36,7 @@
 					<div class="col-md-10 mb-3">
 						<label for="name">Nombre</label> <input type="text"
 							class="form-control" id="name" th:field="*{nombre}"
-							placeholder="Juan Borrego" required>
+							placeholder="Basilica de San Francisco" required>
 						<div class="invalid-feedback">Campo Requerido.</div>
 					</div>
 				</div>
@@ -50,10 +50,24 @@
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="anumber">Número</label> <input type="number"
-							class="form-control" id="anumber" th:field="*{numeroCasa}"
+							class="form-control" id="anumber" min="1" th:field="*{numeroCasa}"
 							placeholder="111" required>
 						<div class="invalid-feedback">Por favor ingrese un número
-							válido.</div>
+							válido mayor a 1.</div>
+					</div>
+					<div class="col-md-5 mb-3">
+						<label for="latitud">Latitud</label> <input type="number"
+							class="form-control" id="latitud" min="-24" max="-21" th:field="*{localizacionLatitud}"
+							placeholder="-22" required>
+						<div class="invalid-feedback">Por favor ingrese una latitud
+							válida entre -21 y -24 </div>
+					</div>
+					<div class="col-md-5 mb-3">
+						<label for="longitud">Longitud</label> <input type="number"
+							class="form-control" id="longitud" min="-67" max="-64" th:field="*{localizacionLongitud}"
+							placeholder="-65" required>
+						<div class="invalid-feedback">Por favor ingrese una longitud
+							válida entre -64 y -67</div>
 					</div>
 				</div>
 
@@ -75,7 +89,7 @@
 				<div class="form-row justify-content-md-center">
 					<div class="col-md-10 mb-3">
 						<label for="description">Descripción</label> <input type="text"
-							class="form-control" id="description" maxlength="240" size="240"
+							class="form-control" id="description" placeholder="Agregue descripción o un comentario sobre el lugar." maxlength="240" size="240"
 							th:field="*{descripcion}" required>
 						<div class="invalid-feedback">Se debe Agregar una
 							descripción.</div>
@@ -86,8 +100,7 @@
 				<div class="custom-file col-md-10">
   					<input type="file" name="file" class="custom-file-input" id="file"
   					accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
-						onchange="loadFile(event)" required>
-						<div class="invalid-feedback">Se debe Agregar una foto.</div>	
+						onchange="loadFile(event)" required>	
 						 <img id="output" style="padding-top: 2px; width: 146px;"/>
 					<label class="custom-file-label" for="file" th:field="*{fotografia}" >Elegir Foto</label>
 				</div>
@@ -98,7 +111,6 @@
   					<input type="file" name="file2" class="custom-file-input" id="file2"
   					accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
 						onchange="loadFile2(event)" required>
-						<div class="invalid-feedback">Se debe Agregar una foto.</div>
 						 <img id="output" style="padding-top: 2px; width: 146px;"/>
 					<label class="custom-file-label" for="file2" th:field="*{fotografia2}" >Elegir Foto</label>
 				</div>
@@ -109,7 +121,7 @@
   					<input type="file" name="file3" 
   					class="custom-file-input" id="file3"accept="image/x-png,image/gif,image/jpeg,image/png,image/jpeg"
 						onchange="loadFile3(event)" required>
-						<div class="invalid-feedback">Se debe Agregar una foto.</div>
+						<div class="invalid-feedback">Se deben agregar tres fotos.</div>
 						 <img id="output" style="padding-top: 2px; width: 146px;"/>
 					<label class="custom-file-label" for="file3" th:field="*{fotografia3}">Elegir Foto</label>
 				</div>
@@ -131,7 +143,7 @@
 					</div>
 					<div class="col-md-5 mb-3">
 						<label for="website">Sitio Web</label> <input type="url"
-							class="form-control" id="website" th:field="*{sitioWeb}">
+							class="form-control" id="website" placeholder="Copiar URL (opcional)" th:field="*{sitioWeb}">
 						<div class="invalid-feedback">Debe copiar la dirección url
 							del sitio.</div>
 					</div>

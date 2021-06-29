@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link th:rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/styles-mypois.css}" />
 <link th:rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
 <link th:rel="stylesheet"
@@ -27,26 +28,23 @@
 
 		<div class="row justify-content-md-center">
 			<div th:each="p : ${pois}">
-				<div class="col-md-4">
-					<div class="card" style="width: 15rem;">
-						<img src="" class="card-img-top" alt="">
+				<div class="col-md-4 ">
+					<div class="p">
 						<div class="card-body">
-							<img th:src="*{'data:;base64,'+p.imagen3}" class="card-img-top"
-								alt="hola">
-							<h5 class="card-title" th:text="${p.nombre}">Nombre</h5>
-							<p class="card-text" th:text="${p.descripcion}">Descripcion</p>
-							<p class="card-text" th:text="${p.localidad}">Localidad</p>
-							<a class="card-text" th:href="${p.sitioWeb}">Sitio Web</a> <a
-								href="#" th:href="@{'/poi/editar/'+${p.codigoPoi}}"> <i
-								class="fa fa-edit"></i></a> <a
-								th:onclick="'javascript:confirmarEliminar(\''+${p.codigoPoi}+'\');'">
-								<i class="fa fa-trash-alt"></i>
-							</a>
+							<img th:src="*{'data:;base64,'+p.imagen}" class="card-img-top"
+								alt="">
+							<h5 class="card-title" style="margin: 15px;" th:text="${p.nombre}">Nombre</h5>
+								
+								<a th:href="@{'/poi/editar/'+${p.codigoPoi}}" class="btn mr-2 boton"><i class="fa fa-edit"></i>Editar</a>
+								
+								<a th:onclick="'javascript:confirmarEliminar(\''+${p.codigoPoi}+'\');'" class="btn mr-2 eliminar"><i class="fa fa-trash-alt"></i>Eliminar</a>
+																
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 
 	<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog"
@@ -62,7 +60,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<h6>Se eliminar� el poi seleccionado.</h6>
+					<h6>Se eliminara el poi seleccionado.</h6>
 				</div>
 				<input type="hidden" id="identificadorPoi" name="HiddenInput" />
 				<div class="modal-footer">

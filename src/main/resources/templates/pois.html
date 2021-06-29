@@ -6,6 +6,7 @@
 <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 <link th:rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/styles-pois.css}">
 <link th:rel="stylesheet"
 	th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
 </head>
@@ -25,14 +26,14 @@
 			<br> <br>
 		</div>
 
-		<div style="margin-left: 430px;">
-		<div class="card border-secondary row" style="width: 18rem;">
+		<div class="card-group">
+		<div class="card">
 			<div th:each="p : ${pois}">
 				<img th:src="*{'data:;base64,'+p.imagen}" class="card-img-top">
 				<div class="card-body">
 					<h5 class="card-title text-center" th:text="${p.nombre}">Nombre</h5>
 					<p class="card-text text-center" th:text="${p.descripcion}">Descripcion</p>
-					<a th:href="@{'/detallespoi/'+${p.codigoPoi}}" class="center" style="margin-left: 40px;" >ver más</a>
+					<a th:href="@{'/detallespoi/'+${p.codigoPoi}}" class="btn mr-2 boton"><i class="fas fa-link"></i> Ver Detallles</a>
 				</div>
 			</div>
 		</div>
