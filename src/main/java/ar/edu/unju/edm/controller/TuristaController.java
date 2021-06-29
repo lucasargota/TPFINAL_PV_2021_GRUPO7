@@ -48,7 +48,10 @@ ITuristaService turistaService;
 	return("turistaspuntos");
 	} 
 	@GetMapping("/canjes")
-	public String canjesPuntos(Model model){ 
+	public String canjesPuntos(Model model, Authentication authentication) throws Exception { 
+		UserDetails userTurista = (UserDetails) authentication.getPrincipal();
+		model.addAttribute("unTurista", turistaService.encontrarPorEmail(userTurista.getUsername()));
+		
 	
 	return("canjes");
 	} 
@@ -130,6 +133,6 @@ ITuristaService turistaService;
 				model.addAttribute("editMode", "true");
 			}		
 			model.addAttribute("turistas", turistaService.obtenerTodosTuristas());
-		return "redirect:/home";
+		return "redirect:/logout";
 	}
 }

@@ -1,5 +1,8 @@
 package ar.edu.unju.edm.controller;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
@@ -50,10 +53,11 @@ public class Turista_Poi_Controller {
 			System.out.println(cargarDetalles.getOtroPoi().getCodigoPoi());
 			
 			model.addAttribute("unDetalle", cargarDetalles);
-		    model.addAttribute("detalles", tpService.obtenerTodosTuristas_Pois());
+		    model.addAttribute("detalles", tpService.obtenerComentariosPoi(poiEncontrado));
 		    Turista turista = turistaService.encontrarPorEmail(userDetail.getUsername());
 			System.out.println("se encontro turista");
 		    model.addAttribute("detalles1", tpService.obtenerMisComentarios(turista));
+		    
 		    model.addAttribute(turista);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -113,6 +117,8 @@ public class Turista_Poi_Controller {
 				
 				turistaService.guardarTurista(turistaEncontrado);
 				nuevoDetalle.setTuristaAutor(turistaEncontrado);
+				nuevoDetalle.setFechaComentario(LocalDate.now());
+                nuevoDetalle.setHoraComentario(LocalTime.now());
 				tpService.guardarTurista_Poi(nuevoDetalle);
 			}
 		} catch (Exception e) {
