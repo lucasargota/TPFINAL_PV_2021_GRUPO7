@@ -1,0 +1,60 @@
+:root {
+  --gradient: linear-gradient(to left top, #ff3300 10%, #ff471a 90%) !important;
+}
+
+:root {
+  --red: linear-gradient(to left top,  #ff1a1a 10%, #ff0000 90%) !important;
+}
+
+/*body {
+  background: #111 !important;
+}*/
+
+.card {
+  background: #f2f2f2;
+  color: rgba(13, 13, 13, 0.8);
+  padding: 20px 30px;
+}
+
+.p {
+  background: #f2f2f2;
+  color: rgba(13, 13, 13, 0.8);
+  padding: 20px 30px;
+  width: 30rem;
+}
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2%;
+}
+
+.boton {
+  background: var(--gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.boton:hover, .boton:focus {
+      background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: #222 1px 0 10px;
+}
+
+.eliminar {
+  background: var(--red) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.eliminar:hover, .eliminar:focus {
+      background: var(--red) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: #222 1px 0 10px;
+}

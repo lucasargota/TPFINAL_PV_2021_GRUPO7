@@ -1,0 +1,32 @@
+:root {
+  --gradient: linear-gradient(to left top, #ff3300 10%, #ff471a 90%) !important;
+}
+
+/*body {
+  background: #111 !important;
+}*/
+
+.card {
+  background: #f2f2f2;
+  color: rgba(13, 13, 13, 0.8);
+  padding: 20px 30px;
+}
+
+.boton {
+  border: 3px solid;
+  border-image-slice: 1;
+  background: var(--gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  border-image-source:  var(--gradient) !important; 
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.boton:hover, .boton:focus {
+      background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 3px solid #fff !important; 
+  box-shadow: #222 1px 0 10px;
+}
