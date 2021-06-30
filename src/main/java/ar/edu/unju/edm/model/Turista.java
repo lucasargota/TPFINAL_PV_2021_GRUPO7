@@ -39,7 +39,7 @@ public class Turista {
 	@Column
 	private int puntos;
 	
-	@OneToMany(mappedBy = "turistaAutor", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "turistaAutor", fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
 	private List<Poi> pois;
 	
 	public Turista() {

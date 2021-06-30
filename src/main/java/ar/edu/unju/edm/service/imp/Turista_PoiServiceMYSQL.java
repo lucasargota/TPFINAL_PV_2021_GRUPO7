@@ -15,13 +15,11 @@ import ar.edu.unju.edm.service.ITurista_PoiService;
 @Service
 @Qualifier("implementacion3mysql")
 public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
-	
-	
+
 	@Autowired
 	Turista_Poi unTurista_Poi;
-	@Autowired 
+	@Autowired
 	ITurista_PoiDAO turista_PoiDAO;
-	
 
 	@Override
 	public void guardarTurista_Poi(Turista_Poi unTurista_Poi) {
@@ -44,40 +42,42 @@ public class Turista_PoiServiceMYSQL implements ITurista_PoiService {
 	@Override
 	public void modificarTurista_Poi(Turista_Poi unTurista_PoiModificado) throws Exception {
 		// TODO Auto-generated method stub
-		Turista_Poi turista_PoiAModificar = turista_PoiDAO.findByIdTP(unTurista_PoiModificado.getIdTP()).orElseThrow(()->new Exception("El Turista_Poi no fue encontrado"));
-		 
+		Turista_Poi turista_PoiAModificar = turista_PoiDAO.findByIdTP(unTurista_PoiModificado.getIdTP())
+				.orElseThrow(() -> new Exception("El Turista_Poi no fue encontrado"));
+
 		cambiarPoi(unTurista_PoiModificado, turista_PoiAModificar);
+		System.out.println("guardando poi modificado");
 		turista_PoiDAO.save(turista_PoiAModificar);
 	}
-	
-	
-	
-	
-	
-	
 
 	private void cambiarPoi(Turista_Poi desde, Turista_Poi hacia) {
-		
+
 		// TODO Auto-generated method stub
 		hacia.setComentario(desde.getComentario());
 		hacia.setValoracion(desde.getValoracion());
+		System.out.println(desde.getIdTP() + "trayendo id");
+		hacia.setFechaComentario(desde.getFechaComentario());
+		hacia.setHoraComentario(desde.getHoraComentario());
+		hacia.setIdTP(desde.getIdTP());
 
-
-		
 	}
 
 	@Override
 	public void eliminarTurista_Poi(Integer idTP) throws Exception {
 		// TODO Auto-generated method stub
-		Turista_Poi turista_PoiEliminar = turista_PoiDAO.findByIdTP(idTP).orElseThrow(()->new Exception("El turista_Poi no fue encontrado"));
-		turista_PoiDAO.delete(turista_PoiEliminar);
+		System.out.println(idTP + " eliminando");
+		// Turista_Poi turista_PoiEliminar =
+		// turista_PoiDAO.findByIdTP(idTP).orElseThrow(()->new Exception("El turista_Poi
+		// no fue encontrado"));
+		// turista_PoiDAO.delete(turista_PoiEliminar);
+		turista_PoiDAO.deleteById(idTP);
 	}
 
 	@Override
 	public Turista_Poi encontrarUnTurista_Poi(Integer idTP) throws Exception {
 		// TODO Auto-generated method stub
-		
-		return turista_PoiDAO.findByIdTP(idTP).orElseThrow( ()->new Exception("El Turista_Poi NO existe"));
+
+		return turista_PoiDAO.findByIdTP(idTP).orElseThrow(() -> new Exception("El Turista_Poi NO existe"));
 	}
 
 	@Override
