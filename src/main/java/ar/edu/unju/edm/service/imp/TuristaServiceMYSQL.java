@@ -61,8 +61,6 @@ public class TuristaServiceMYSQL implements ITuristaService{
 	private void cambiarTurista(Turista desde, Turista hacia) {
 		hacia.setApellido(desde.getApellido());
 		hacia.setEmail(desde.getEmail());
-		hacia.setLocalizacionLatitud(desde.getLocalizacionLatitud());
-		hacia.setLocalizacionLongitud(desde.getLocalizacionLongitud());
 		hacia.setNombre(desde.getNombre());
 		hacia.setPais(desde.getPais());
 		String pw = desde.getPassword();

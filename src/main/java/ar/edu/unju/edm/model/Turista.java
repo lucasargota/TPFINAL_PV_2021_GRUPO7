@@ -32,10 +32,7 @@ public class Turista {
 	private String password; 
 	@Column
 	private String pais; 
-	@Column
-	private double localizacionLatitud;
-	@Column
-	private double localizacionLongitud;
+	
 	@Column
 	private int puntos;
 	
@@ -82,18 +79,7 @@ public class Turista {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	public double getLocalizacionLatitud() {
-		return localizacionLatitud;
-	}
-	public void setLocalizacionLatitud(double localizacionLatitud) {
-		this.localizacionLatitud = localizacionLatitud;
-	}
-	public double getLocalizacionLongitud() {
-		return localizacionLongitud;
-	}
-	public void setLocalizacionLongitud(double localizacionLongitud) {
-		this.localizacionLongitud = localizacionLongitud;
-	}
+
 	public int getPuntos() {
 		return puntos;
 	}
