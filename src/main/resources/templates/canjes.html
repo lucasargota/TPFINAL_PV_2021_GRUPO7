@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Pois</title>
+<title>Canje</title>
 <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 <link th:rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
@@ -22,6 +22,8 @@
 			<h3 id='Titulos'>
 				<span class=colorTitulos>Canjes</span>
 			</h3>
+			 <h6 class=colorTitulos>Puntos de Usuario</h6>
+              <h8 class=colorTitulos th:text="${unTurista.puntos}">Puntos</h8>	
 			<br> <br>
 		</div>
 
@@ -30,22 +32,12 @@
 					<img src="https://cdn.discordapp.com/attachments/701871673971834984/858881629472423956/Z.png" class="card-img-top" alt="...">
 					<div class="card-body">
 					<h5 class="card-title">Remera</h5>
-					<p class="card-text">Puntos: 250</p>
+					<p class="card-text">Puntos: 50</p>
 					
-					<input type="submit" class="btn btn-info btn-block">
+					<!--<input type="submit" class="btn btn-info btn-block">-->
+					<a href="#" id="button" class="btn btn-info btn-block" th:onclick="confirmarCanjear1()">Canjear!</a>
 					
-					
-					<script type="text/javascript"> 
-					
-					
-					if(unTurista.puntos <= 250){
-						alert("no tiene los puntos suficientes");
-					}
-					else {
-						
-						
-					}
-				
+		
 					
 					</script>
 					
@@ -56,8 +48,8 @@
 				<img src="https://media-cdn.tripadvisor.com/media/photo-s/05/19/a0/a0/termas-de-reyes.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
 				<h5 class="card-title">Una noche en Hotel Terma de Reyes</h5>
-				<p class="card-text">Puntos: 650</p>
-				<input type="submit" class="btn btn-info btn-block">
+				<p class="card-text">Puntos: 600</p>
+				<a href="#" id="button" class="btn btn-info btn-block" th:onclick="confirmarCanjear2()">Canjear!</a>
 				</div>
 			</div>
 			
@@ -66,13 +58,108 @@
 					<div class="card-body">
 					<h5 class="card-title">Un almuerzo en Purmamarca</h5>
 					<p class="card-text">Puntos: 350</p>
-					<input type="submit" class="btn btn-info btn-block">
+					<a href="#" id="button" class="btn btn-info btn-block" th:onclick="confirmarCanjear3()">Canjear!</a>
 				</div>
 			</div>
 		</div>
 
 	</div>
 
+
+
+<!--Modal Eliminar-->
+	<div class="modal" tabindex="-1" id="modalcanjear1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmar Canjear</h5>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="eliminarModalTitulo">
+					<p>Se van a Canjear sus puntos, está seguro?</p>
+				</div>
+				<input type="hidden" id="idTurista" name="turistaId" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger" th:onclick="canjear10Puntos()">Si, Estoy seguro!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<div class="modal" tabindex="-1" id="modalcanjear2">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmar Canjear</h5>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="eliminarModalTitulo">
+					<p>Se van a Canjear sus puntos, está seguro?</p>
+				</div>
+				<input type="hidden" id="idTurista" name="turistaId" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger" th:onclick="canjear20Puntos()">Si, Estoy seguro!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="modal" tabindex="-1" id="modalcanjear3">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmar Canjear</h5>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" id="eliminarModalTitulo">
+					<p>Se van a Canjear sus puntos, está seguro?</p>
+				</div>
+				<input type="hidden" id="idTurista" name="turistaId" />
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger" th:onclick="canjear30Puntos()">Si, Estoy seguro!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--Scripts-->
+	<script type="text/javascript">
+		function confirmarCanjear1() {
+			$('#modalcanjear1').modal('show');
+		}
+		function confirmarCanjear2() {
+			$('#modalcanjear2').modal('show');
+			
+		}
+		function confirmarCanjear3() {
+			$('#modalcanjear3').modal('show');
+		}
+
+		function canjear10Puntos() {
+			var id = $("#identificadorUsuarioHiddenInput").val();
+			window.location = "/canjear/canjear10/"
+		}
+
+
+		function canjear20Puntos() {
+			var id = $("#identificadorUsuarioHiddenInput").val();
+			window.location = "/canjear/canjear20/"
+		}
+
+
+		function canjear30Puntos() {
+			var id = $("#identificadorUsuarioHiddenInput").val();
+			window.location = "/canjear/canjear30/"
+		}
+
+
+
+	</script>
 	<!-- Footer -->
 	<footer>
 		<div th:insert="layouts/footer :: footer"></div>
