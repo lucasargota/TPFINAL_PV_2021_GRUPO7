@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,8 +35,11 @@ public class Turista {
 	@Column
 	private int puntos;
 	
-	@OneToMany(mappedBy = "turistaAutor", fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "turistaAutor", cascade = CascadeType.REMOVE)
 	private List<Poi> pois;
+	
+	@OneToMany(mappedBy = "turistaAutor", cascade = CascadeType.REMOVE)
+	private List<Turista_Poi> valoracion;
 	
 	public Turista() {
 		// TODO Auto-generated constructor stub
