@@ -35,9 +35,9 @@ public class CanjeController {
 		try {
 			Turista turistaEncontrado = turistaService.encontrarPorEmail(userTurista.getUsername());
 			if (turistaEncontrado != null) {
-				if (turistaEncontrado.getPuntos() >= 10) {
+				if (turistaEncontrado.getPuntos() >= 50) {
 					model.addAttribute("negativo", "false");
-					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() - 10);
+					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() - 50);
 					turistaService.guardarTurista(turistaEncontrado);
 
 				} else {
@@ -50,7 +50,7 @@ public class CanjeController {
 
 			e.printStackTrace();
 		}
-		return "redirect:/canjes";
+		return "canjeado";
 
 	}
 
@@ -62,9 +62,9 @@ public class CanjeController {
 		try {
 			Turista turistaEncontrado = turistaService.encontrarPorEmail(userTurista.getUsername());
 			if (turistaEncontrado != null) {
-				if (turistaEncontrado.getPuntos() >= 20) {
+				if (turistaEncontrado.getPuntos() >= 600) {
 					model.addAttribute("negativo", "false");
-					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() - 20);
+					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() - 600);
 					turistaService.guardarTurista(turistaEncontrado);
 
 				} else {
@@ -77,7 +77,7 @@ public class CanjeController {
 
 			e.printStackTrace();
 		}
-		return "redirect:/canjes";
+		return "canjeado";
 
 	}
 
@@ -89,9 +89,9 @@ public class CanjeController {
 		try {
 			Turista turistaEncontrado = turistaService.encontrarPorEmail(userTurista.getUsername());
 			if (turistaEncontrado != null) {
-				if (turistaEncontrado.getPuntos() >= 30) {
+				if (turistaEncontrado.getPuntos() >= 350) {
 					model.addAttribute("negativo", "false");
-					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() - 30);
+					turistaEncontrado.setPuntos(turistaEncontrado.getPuntos() - 350);
 					turistaService.guardarTurista(turistaEncontrado);
 
 				} else {
@@ -104,7 +104,7 @@ public class CanjeController {
 
 			e.printStackTrace();
 		}
-		return "redirect:/canjes";
+		return "canjeado";
 
 	}
 }
