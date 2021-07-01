@@ -1,5 +1,7 @@
 package ar.edu.unju.edm.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
@@ -10,9 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import ar.edu.unju.edm.model.Poi;
 import ar.edu.unju.edm.model.Turista;
+import ar.edu.unju.edm.model.Turista_Poi;
 import ar.edu.unju.edm.service.IPoiService;
 import ar.edu.unju.edm.service.ITuristaService;
+import ar.edu.unju.edm.service.ITurista_PoiService;
 
 @Controller
 public class TuristaController {
@@ -23,6 +29,11 @@ public class TuristaController {
 	@Autowired
 	@Qualifier("implementacion2mysql")
 	ITuristaService turistaService;
+	
+	@Autowired
+	@Qualifier("implementacion3mysql")
+	ITurista_PoiService tpService;
+
 
 	// Get
 //acá cambié el get mapping, si quieren abrir el turistas usen turista registrar.
@@ -82,8 +93,25 @@ public class TuristaController {
 
 	@GetMapping("/turista/eliminarTurista/{id}")
 	public String eliminarTurista(Model model, @PathVariable(name = "id") Integer id) {
+		List<Poi> pois=poiService.obtenerTodosPois();
+        List<Turista_Poi> val = tpService.obtenerTodosTuristas_Pois();
 
 		try {
+			 for(int i=0;i<val.size();i++) {
+	                System.out.println("entro a i");
+	                if(val.get(i).getTuristaAutor().getId()==id) {
+	                    for(int o=0;o<pois.size();o++) {
+	                        System.out.println("entro a o");
+	                        if(pois.get(o).getCodigoPoi()==val.get(i).getOtroPoi().getCodigoPoi()) {
+	                            pois.get(o).setValFinal(pois.get(o).getValFinal()-val.get(i).getValoracion());
+	                        }
+	                    }
+	                }
+	                }
+			
+			
+			
+			
 			turistaService.eliminarTurista(id);
 
 			return "redirect:/logout";

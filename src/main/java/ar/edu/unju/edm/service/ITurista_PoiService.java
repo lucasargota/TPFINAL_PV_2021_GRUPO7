@@ -17,5 +17,6 @@ public interface ITurista_PoiService {
 	Turista_Poi encontrarUnTurista_Poi(Integer idTP) throws Exception;
 	public List<Turista_Poi> obtenerMisComentarios(Turista turistaAutor);
 	public List<Turista_Poi> obtenerComentariosPoi(Poi otroPoi);
+	
 
 }
