@@ -67,11 +67,17 @@ public class Turista_Poi_Controller {
 
 	@GetMapping("/detallespoi/eliminarDetalle/{idTP}/{codigoPoi}")
 	public String eliminarValoracion(Model model, @PathVariable(name = "idTP") Integer idTP,
-			@PathVariable(name = "codigoPoi") Integer codigoPoi) {
+			@PathVariable(name = "codigoPoi") Integer codigoPoi) throws Exception {
+		Poi poiEncontrado = poiService.encontrarUnPoi(codigoPoi);
+		Turista_Poi valEncontrado = tpService.encontrarUnTurista_Poi(idTP);
 		try {
 			System.out.println("enviando id");
 			System.out.println(idTP);
+			
+			poiEncontrado.setValFinal(poiEncontrado.getValFinal() - valEncontrado.getValoracion());
 			tpService.eliminarTurista_Poi(idTP);
+			
+			
 		} catch (Exception e) {
 			model.addAttribute("listErrorMessage", e.getMessage());
 		}

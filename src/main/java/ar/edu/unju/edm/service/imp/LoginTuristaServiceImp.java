@@ -28,7 +28,7 @@ public class LoginTuristaServiceImp implements UserDetailsService {
 		System.out.print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		Turista turistaEncontrado = turistaDAO.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("cliente invalido"));
 		
-		
+		System.out.print("aaaaaaaaaaaaaaaaaaaa");
 		
 		List<GrantedAuthority> tipos = new ArrayList<>();
 		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(turistaEncontrado.getPais());
