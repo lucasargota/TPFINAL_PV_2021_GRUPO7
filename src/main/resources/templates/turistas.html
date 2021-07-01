@@ -41,6 +41,7 @@
 					<label for="emTurista">Email</label> 
 					<input type="email" class="form-control" id="emTurista" th:field="*{email}" placeholder="myemail@yahoo.com" required>
 					<div class="valid-feedback"></div>
+					<div th:if="${mensaje}" class="alert alert-danger p-1 mt-3" th:text="${mensaje}"></div>
 				</div>
 			</div>
 			<div class="form-row justify-content-md-center">

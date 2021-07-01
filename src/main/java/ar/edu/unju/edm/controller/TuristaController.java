@@ -131,8 +131,21 @@ public class TuristaController {
 	// Post
 	@PostMapping("/turista/guardar")
 	public String guardarNuevoturista(@ModelAttribute("UnTurista") Turista nuevoTurista, Model model) {
-
-		turistaService.guardarTurista(nuevoTurista);
+		try {
+			// verificando si el usuario ya estaba registrado
+			if (turistaService.encontrarPorEmail(nuevoTurista.getEmail()) != null) {
+				model.addAttribute("mensaje", "El email ya está registrado");
+				System.out.println("encuentra?");
+				model.addAttribute("unTurista", nuevoTurista);
+				return "turistas";
+			}
+			
+			
+			
+		} catch (Exception e) {
+			turistaService.guardarTurista(nuevoTurista);
+			System.out.println(e.getMessage());
+		}
 		return "redirect:/home";
 
 	}
