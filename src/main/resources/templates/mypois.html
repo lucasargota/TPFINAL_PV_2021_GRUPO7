@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
-<link th:rel="stylesheet" type="text/css" th:href="@{/css/styles-mypois.css}" />
+<link th:rel="stylesheet" type="text/css"
+	th:href="@{/css/styles-mypois.css}" />
 <link th:rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
 <link th:rel="stylesheet"
@@ -27,31 +28,36 @@
 		</div>
 
 		<div class="row justify-content-md-center">
-		
-		<tr th:if="${pois.empty}">
-				<td colspan="2">No hay puntos de interes</td>
-			<a th:href="@{/poi/agregar}" class="btn mr-2 boton"><i class="fas fa-link"></i>Desea Agregar?</a>
-				
+
+			<tr th:if="${pois.empty}">
+				<td colspan="2">
+					<h4>No hay puntos de interes</h4>
+				</td>
+				<a th:href="@{/poi/agregar}" class="btn mr-2 btnlogin"><i
+					class="fas fa-link"></i>Desea Agregar?</a>
 			</tr>
+
 			<div th:each="p : ${pois}">
-			
+
 				<div class="col-md-4 ">
 					<div class="p">
 						<div class="card-body">
 							<img th:src="*{'data:;base64,'+p.imagen}" class="card-img-top"
 								alt="">
-							<h5 class="card-title" style="margin: 15px;" th:text="${p.nombre}">Nombre</h5>
-								
-								<a th:href="@{'/poi/editar/'+${p.codigoPoi}}" class="btn mr-2 boton"><i class="fa fa-edit"></i>Editar</a>
-								
-								<a th:onclick="'javascript:confirmarEliminar(\''+${p.codigoPoi}+'\');'" class="btn mr-2 eliminar"><i class="fa fa-trash-alt"></i>Eliminar</a>
-																
+							<h5 class="card-title" style="margin: 15px;"
+								th:text="${p.nombre}">Nombre</h5>
+
+							<a th:href="@{'/poi/editar/'+${p.codigoPoi}}"
+								class="btn mr-2 boton"><i class="fa fa-edit"></i>Editar</a> <a
+								th:onclick="'javascript:confirmarEliminar(\''+${p.codigoPoi}+'\');'"
+								class="btn mr-2 eliminar"><i class="fa fa-trash-alt"></i>Eliminar</a>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 
 	<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog"

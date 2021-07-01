@@ -1,6 +1,7 @@
 html{
     height: 100%;
 }
+
 .fondo{
 	background-color: rgb(255, 255, 255);
 	background:url(https://tripin.travel/wp-content/uploads/2016/07/Purmamarca_PAG6175-Foto-Hernan-Paganini-copia.jpg) repeat center top;
@@ -41,13 +42,42 @@ html{
 
 .login-box
 {
+	
  width: 320px;
-  height: 350px;
-  background-color:#D83912;
-  border-radius: 20px;
+  height: 380px;
+  background-color: rgba(252, 104, 48, 0.8);
+  border-radius: 15px;
   top: 50%;
   left: 50%;
-  padding: 20px 30px;
+  padding: 40px 40px;
+  margin-top: 200px;
+  margin-left: 800px;
+  text-align: center;
+  box-shadow: #222 1px 0 10px;
+}
+
+
+
+:root {
+  --gradient: linear-gradient(to left top, #ff3300 10%, #ff471a 90%) !important;
+}
+:root {
+  --otro: linear-gradient(to left top, #EB6949 10%, #EB6949 90%) !important;
+}
+
+.btnlogin {
+	background: var(--otro) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.btnlogin:hover, .btnlogin:focus {
+      background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: #222 1px 0 10px;
 }
 
 .formpoi
@@ -67,6 +97,10 @@ h6
 {
 	color:white ;
 	text-decoration: underline;	
+}
+
+.bottom{
+	margin-top: 100px;
 }
 
 .center {	

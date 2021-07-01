@@ -22,43 +22,46 @@
 			<h3 id='Titulos'>
 				<span class=colorTitulos>Canjes</span>
 			</h3>
-			 <h6 class=colorTitulos>Puntos de Usuario</h6>
-              <h8 class=colorTitulos th:text="${unTurista.puntos}">Puntos</h8>	
+			<h6 class=colorTitulos>Puntos de Usuario</h6>
+			<h8 class=colorTitulos th:text="${unTurista.puntos}"></h8>
 			<br> <br>
 		</div>
 
 		<div class="card-deck">
-				<div class="card">
-					<img src="https://cdn.discordapp.com/attachments/701871673971834984/858881629472423956/Z.png" class="card-img-top" alt="...">
-					<div class="card-body">
+			<div class="card">
+				<img
+					src="https://cdn.discordapp.com/attachments/701871673971834984/858881629472423956/Z.png"
+					class="card-img-top" alt="...">
+				<div class="card-body align-bottom">
 					<h5 class="card-title">Remera</h5>
 					<p class="card-text">Puntos: 50</p>
-					
-					<!--<input type="submit" class="btn btn-info btn-block">-->
-					<a href="#" id="button" class="btn btn-info btn-block" th:onclick="confirmarCanjear1()">Canjear!</a>
-					
-		
-					
-					</script>
-					
+					<a href="#" id="button" class="btn btnlogin btn-block"
+						th:onclick="confirmarCanjear1()">Canjear!</a>
+
 				</div>
 			</div>
-			
+
 			<div class="card">
-				<img src="https://media-cdn.tripadvisor.com/media/photo-s/05/19/a0/a0/termas-de-reyes.jpg" class="card-img-top" alt="...">
-				<div class="card-body">
-				<h5 class="card-title">Una noche en Hotel Terma de Reyes</h5>
-				<p class="card-text">Puntos: 600</p>
-				<a href="#" id="button" class="btn btn-info btn-block" th:onclick="confirmarCanjear2()">Canjear!</a>
+				<img
+					src="https://media-cdn.tripadvisor.com/media/photo-s/05/19/a0/a0/termas-de-reyes.jpg"
+					class="card-img-top" alt="...">
+				<div class="card-body bottom">
+					<h5 class="card-title">Una noche en Hotel Terma de Reyes</h5>
+					<p class="card-text">Puntos: 600</p>
+					<a href="#" id="button" class="btn btnlogin btn-block"
+						th:onclick="confirmarCanjear2()">Canjear!</a>
 				</div>
 			</div>
-			
+
 			<div class="card">
-					<img src="https://media-cdn.tripadvisor.com/media/photo-s/02/37/fb/4a/filename-11sept-arg340.jpg" class="card-img-top" alt="...">
-					<div class="card-body">
+				<img
+					src="https://media-cdn.tripadvisor.com/media/photo-s/02/37/fb/4a/filename-11sept-arg340.jpg"
+					class="card-img-top" alt="...">
+				<div class="card-body" style="margin-top:150px;">
 					<h5 class="card-title">Un almuerzo en Purmamarca</h5>
 					<p class="card-text">Puntos: 350</p>
-					<a href="#" id="button" class="btn btn-info btn-block" th:onclick="confirmarCanjear3()">Canjear!</a>
+					<a href="#" id="button" class="btn btnlogin btn-block"
+						th:onclick="confirmarCanjear3()">Canjear!</a>
 				</div>
 			</div>
 		</div>
@@ -67,74 +70,83 @@
 
 
 
-<!--Modal Eliminar-->
+	<!--Modal Eliminar-->
 	<div class="modal" tabindex="-1" id="modalcanjear1">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">Confirmar Canjear</h5>
-					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-dismiss="modal"
+						aria-label="Close"></button>
 				</div>
 				<div class="modal-body" id="eliminarModalTitulo">
 					<p>Se van a Canjear sus puntos, está seguro?</p>
 				</div>
 				<input type="hidden" id="idTurista" name="turistaId" />
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-danger" th:onclick="canjear10Puntos()">Si, Estoy seguro!</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger"
+						th:onclick="canjear10Puntos()">Si, Estoy seguro!</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	
-<div class="modal" tabindex="-1" id="modalcanjear2">
+
+
+	<div class="modal" tabindex="-1" id="modalcanjear2">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">Confirmar Canjear</h5>
-					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-dismiss="modal"
+						aria-label="Close"></button>
 				</div>
 				<div class="modal-body" id="eliminarModalTitulo">
 					<p>Se van a Canjear sus puntos, está seguro?</p>
 				</div>
 				<input type="hidden" id="idTurista" name="turistaId" />
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-danger" th:onclick="canjear20Puntos()">Si, Estoy seguro!</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger"
+						th:onclick="canjear20Puntos()">Si, Estoy seguro!</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<div class="modal" tabindex="-1" id="modalcanjear3">
+	<div class="modal" tabindex="-1" id="modalcanjear3">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">Confirmar Canjear</h5>
-					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-dismiss="modal"
+						aria-label="Close"></button>
 				</div>
 				<div class="modal-body" id="eliminarModalTitulo">
 					<p>Se van a Canjear sus puntos, está seguro?</p>
 				</div>
 				<input type="hidden" id="idTurista" name="turistaId" />
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-danger" th:onclick="canjear30Puntos()">Si, Estoy seguro!</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-danger"
+						th:onclick="canjear30Puntos()">Si, Estoy seguro!</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-<!--Scripts-->
+	<!--Scripts-->
 	<script type="text/javascript">
 		function confirmarCanjear1() {
 			$('#modalcanjear1').modal('show');
 		}
 		function confirmarCanjear2() {
 			$('#modalcanjear2').modal('show');
-			
+
 		}
 		function confirmarCanjear3() {
 			$('#modalcanjear3').modal('show');
@@ -145,20 +157,15 @@
 			window.location = "/canjear/canjear10/"
 		}
 
-
 		function canjear20Puntos() {
 			var id = $("#identificadorUsuarioHiddenInput").val();
 			window.location = "/canjear/canjear20/"
 		}
 
-
 		function canjear30Puntos() {
 			var id = $("#identificadorUsuarioHiddenInput").val();
 			window.location = "/canjear/canjear30/"
 		}
-
-
-
 	</script>
 	<!-- Footer -->
 	<footer>

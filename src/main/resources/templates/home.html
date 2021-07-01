@@ -3,6 +3,8 @@
 <head>
 <link th:rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 <link th:rel="stylesheet" type="text/css"
+	th:href="@{/css/styles-login.css}" />
+<link th:rel="stylesheet" type="text/css"
 	th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
 <link th:rel="stylesheet"
 	th:href="@{/webjars/font-awesome/5.11.2/css/all.css} " />
@@ -12,45 +14,47 @@
 <body class="b">
 	<div class="container">
 	
-	<br><br><br><br><br><br>
-	
-	<div class="row align-items-center ">
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col">
-                
-		<div class="login-box">
-		
-					<form th:action="@{/login}" method="post">
-						<h1><span class="text-light">Iniciar Sesion</span></h1>
-	
-						<div class="form-group row">
-							<label for="correo" class="col-sm-2 col-form-label text-light">Correo</label>
-							<br><input type="text" name="correo" placeholder="Enter Username"	class="form-control">							
-						</div>
-	
-						<div class="form-group row">
-							<label for="password" class="col-sm-2 col-form-label text-light">Contraseña</label>
-							<br> <input type="password" name="password" placeholder="Enter Password" class="form-control">
-	
-						</div>
-						
-					 <p><input type="submit" value="Ingresar" class="btn btn-outline-light"></p>
-						
-						<a href="/turista/registrar" class="text-light">¿No tienes una cuenta? Registrate</a>
-					</form>
+		<div class="row align-items-center ">
+
+			<div class="login-box">
+
+				<form th:action="@{/login}" method="post">
+					<h1>
+						<span class="text-light">Iniciar Sesion</span>
+					</h1>
+
+					<div class="form-group row">
+						<label for="correo" class="col-sm-2 col-form-label text-light">Correo</label>
+						<br> <input type="text" name="correo"
+							placeholder="Enter Username" class="form-control">
+					</div>
+
+					<div class="form-group row">
+						<label for="password" class="col-sm-2 col-form-label text-light">Contraseña</label>
+						<br> <input type="password" name="password"
+							placeholder="Enter Password" class="form-control">
+
+					</div>
+					
+					<p>
+						<input type="submit" value="Ingresar" class="btn mr-2 boton">
+					</p>
+					<a href="/turista/registrar" class="text-light">¿No tienes una
+						cuenta? Registrate</a>
+				</form>
 			</div>
+		</div>
+	</div>
+</body>
 
-	</body>
-
-	<!-- Scripts -->
-	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
-		type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
-	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
-		type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
-	<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
-		type="text/javascript"
-		src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Scripts -->
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"
+	type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}"
+	type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
+	type="text/javascript"
+	src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>
