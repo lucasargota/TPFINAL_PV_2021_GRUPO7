@@ -14,7 +14,6 @@ html{
 {
 	background:url(https://images.clarin.com/2018/02/05/BkBhwAO8M_1256x620__1.jpg) repeat center top;
 	height: 100%;
-
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -192,3 +191,4 @@ footer {
   /*background-color: #efefef;*/
   text-align: left;
 }
+
