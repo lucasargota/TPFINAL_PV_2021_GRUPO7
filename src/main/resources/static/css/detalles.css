@@ -7,6 +7,11 @@ body {
     text-transform: uppercase;
 }
 
+.fondo1
+{
+	background: -webkit-linear-gradient(#8a262b, #e39d57);
+}
+
 .card-block {
     font-size: 1em;
     position: relative;

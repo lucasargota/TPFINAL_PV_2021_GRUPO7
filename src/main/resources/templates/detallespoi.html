@@ -9,7 +9,7 @@
 	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css}">
 </head>
 
-<body style="background-color: rgb(255, 255, 255);">
+<body style="background-color: #EB6949">
 
 	<!-- Header -->
 	<header>
@@ -215,6 +215,9 @@
 					</div>
 					<div class="comment-widgets">
 						<!-- Comment Row -->
+						<div class="center"  th:if="${detalles.empty}">
+								<td colspan="2">No hay comentarios</td>
+						</div>
 						<tr th:each=" c : ${detalles}">
 						<div class="d-flex flex-row comment-row m-t-0">
 							<div class="p-2"><img src="http://assets.stickpng.com/images/585e4beacb11b227491c3399.png" alt="user" width="50"
