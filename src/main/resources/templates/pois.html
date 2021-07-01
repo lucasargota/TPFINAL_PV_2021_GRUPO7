@@ -28,6 +28,15 @@
 
 		<div class="card-group">
 		<div class="card">
+			<tr th:if="${pois.empty}">
+				<td colspan="2">
+					<h4>No hay puntos de interes</h4>
+				</td>
+				<td><br></td>
+				<td><br></td>
+				<a th:href="@{/poi/agregar}" class="btn mr-2 btnlogin"><i
+					class="fas fa-link"></i>Desea Agregar?</a>
+			</tr>
 			<div th:each="p : ${pois}">
 				<img th:src="*{'data:;base64,'+p.imagen}" class="card-img-top">
 				<div class="card-body">
