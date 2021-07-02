@@ -45,17 +45,17 @@ public class Poi {
 	private int localizacionLongitud;
 	@Column
 	private byte[] fotografia;
-	@Column(name = "imagen", columnDefinition = "BIGINT")
+	@Column(name = "imagen", columnDefinition = "LONGBLOB")
 	private String imagen;
 	
 	@Column
 	private byte[] fotografia2;
-	@Column(name = "imagen2", columnDefinition = "BIGINT")
+	@Column(name = "imagen2", columnDefinition = "LONGBLOB")
 	private String imagen2;
 	
 	@Column
 	private byte[] fotografia3;
-	@Column(name = "imagen3", columnDefinition = "BIGINT")
+	@Column(name = "imagen3", columnDefinition = "LONGBLOB")
 	private String imagen3;
 	
 	
