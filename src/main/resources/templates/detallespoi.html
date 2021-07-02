@@ -43,6 +43,9 @@
 						Valoracion:
 						<p class="card-text" th:text="${(#numbers.formatDecimal(unPoi.valFinal/unPoi.turistaVal.size(),1,1))}">
 						</p>
+						Ubicacion:
+						<p class="card-text" th:text="'Latitud: ' + ${unPoi.localizacionLatitud} + ' Longitud: ' + ${unPoi.localizacionLongitud}">
+						</p>
 						<br>
 						<a href="#" class="btn btn-sm btn-warning" th:text="${unPoi.etiqueta}"></a> 
 					</div>
@@ -149,7 +152,7 @@
 							<div class="p-2"><img src="http://assets.stickpng.com/images/585e4beacb11b227491c3399.png" alt="user" width="50"
 									class="rounded-circle"></div>
 							<div class="comment-text w-100">
-								<h6 class="font-medium text-dark" th:text="${turista.nombre}"></h6> 
+								<h6 class="font-medium text-dark" th:text="${c.turistaAutor.nombre}"></h6> 
 								<div class="comment-header"> <span class="text-muted float-right" th:text="${c.valoracion}+' '+ estrellas"></span></div>
 								<span class="m-b-15 d-block" th:text="${c.comentario}"></span>
 								<div class="comment-footer"> <span class="text-muted float-right" th:text="${c.fechaComentario} +' | '+ ${c.horaComentario}"></span>
